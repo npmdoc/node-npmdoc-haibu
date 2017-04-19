@@ -1,0 +1,5610 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+    >haibu (v0.10.3)</a>
+</h1>
+<h4>A node.js application server - spawn your own node.js clouds, on your own hardware</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.haibu">module haibu</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">haibu.</span>initialized</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">haibu.</span>newListener</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">haibu.</span>wildcard</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.Spawner">
+            function <span class="apidocSignatureSpan">haibu.</span>Spawner
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.drone.Client">
+            function <span class="apidocSignatureSpan">haibu.</span>drone.Client
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.drone.Drone">
+            function <span class="apidocSignatureSpan">haibu.</span>drone.Drone
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.getSpawnOptions">
+            function <span class="apidocSignatureSpan">haibu.</span>getSpawnOptions
+            <span class="apidocSignatureSpan">(target)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.repository.Repository">
+            function <span class="apidocSignatureSpan">haibu.</span>repository.Repository
+            <span class="apidocSignatureSpan">(app, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.sendResponse">
+            function <span class="apidocSignatureSpan">haibu.</span>sendResponse
+            <span class="apidocSignatureSpan">(res, status, body)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan"></span>haibu</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">haibu.</span>Spawner.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">haibu.</span>_conf</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">haibu.</span>_events</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">haibu.</span>advanced-replies</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">haibu.</span>bootstrapper</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">haibu.</span>coffee</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">haibu.</span>common</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">haibu.</span>config</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">haibu.</span>drone</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">haibu.</span>drone.Client.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">haibu.</span>drone.Client.super_.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">haibu.</span>drone.Drone.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">haibu.</span>initializers</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">haibu.</span>initlist</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">haibu.</span>listenerTree</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">haibu.</span>options</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">haibu.</span>plugins</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">haibu.</span>repository</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">haibu.</span>repository.Repository.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">haibu.</span>running</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">haibu.</span>useraccounts</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">haibu.</span>utils</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">haibu.</span>utils.directories</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">haibu.</span>utils.npm</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">haibu.</span>delimiter</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">haibu.</span>env</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">haibu.</span>root</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">haibu.</span>version</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.haibu.Spawner">module haibu.Spawner</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.Spawner.Spawner">
+            function <span class="apidocSignatureSpan">haibu.</span>Spawner
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.haibu.Spawner.prototype">module haibu.Spawner.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.Spawner.prototype.spawn">
+            function <span class="apidocSignatureSpan">haibu.Spawner.prototype.</span>spawn
+            <span class="apidocSignatureSpan">(repo, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.Spawner.prototype.trySpawn">
+            function <span class="apidocSignatureSpan">haibu.Spawner.prototype.</span>trySpawn
+            <span class="apidocSignatureSpan">(app, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.haibu.advanced-replies">module haibu.advanced-replies</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.advanced-replies.attach">
+            function <span class="apidocSignatureSpan">haibu.advanced-replies.</span>attach
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.advanced-replies.init">
+            function <span class="apidocSignatureSpan">haibu.advanced-replies.</span>init
+            <span class="apidocSignatureSpan">(done)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">haibu.advanced-replies.</span>name</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.haibu.bootstrapper">module haibu.bootstrapper</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.bootstrapper.bootstrap">
+            function <span class="apidocSignatureSpan">haibu.bootstrapper.</span>bootstrap
+            <span class="apidocSignatureSpan">(app)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.bootstrapper.init">
+            function <span class="apidocSignatureSpan">haibu.bootstrapper.</span>init
+            <span class="apidocSignatureSpan">(app, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.haibu.coffee">module haibu.coffee</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.coffee.argv">
+            function <span class="apidocSignatureSpan">haibu.coffee.</span>argv
+            <span class="apidocSignatureSpan">(repo)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.coffee.attach">
+            function <span class="apidocSignatureSpan">haibu.coffee.</span>attach
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.coffee.init">
+            function <span class="apidocSignatureSpan">haibu.coffee.</span>init
+            <span class="apidocSignatureSpan">(done)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">haibu.coffee.</span>name</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.haibu.drone">module haibu.drone</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">haibu.drone.</span>started</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.drone.Client">
+            function <span class="apidocSignatureSpan">haibu.drone.</span>Client
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.drone.Drone">
+            function <span class="apidocSignatureSpan">haibu.drone.</span>Drone
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.drone.autostart">
+            function <span class="apidocSignatureSpan">haibu.drone.</span>autostart
+            <span class="apidocSignatureSpan">(server, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.drone.start">
+            function <span class="apidocSignatureSpan">haibu.drone.</span>start
+            <span class="apidocSignatureSpan">(options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.drone.stop">
+            function <span class="apidocSignatureSpan">haibu.drone.</span>stop
+            <span class="apidocSignatureSpan">(cleanup, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.haibu.drone.Client">module haibu.drone.Client</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.drone.Client.Client">
+            function <span class="apidocSignatureSpan">haibu.drone.</span>Client
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.drone.Client.super_">
+            function <span class="apidocSignatureSpan">haibu.drone.Client.</span>super_
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.haibu.drone.Client.prototype">module haibu.drone.Client.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.drone.Client.prototype.clean">
+            function <span class="apidocSignatureSpan">haibu.drone.Client.prototype.</span>clean
+            <span class="apidocSignatureSpan">(app, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.drone.Client.prototype.cleanAll">
+            function <span class="apidocSignatureSpan">haibu.drone.Client.prototype.</span>cleanAll
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.drone.Client.prototype.get">
+            function <span class="apidocSignatureSpan">haibu.drone.Client.prototype.</span>get
+            <span class="apidocSignatureSpan">(name, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.drone.Client.prototype.restart">
+            function <span class="apidocSignatureSpan">haibu.drone.Client.prototype.</span>restart
+            <span class="apidocSignatureSpan">(name, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.drone.Client.prototype.start">
+            function <span class="apidocSignatureSpan">haibu.drone.Client.prototype.</span>start
+            <span class="apidocSignatureSpan">(app, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.drone.Client.prototype.stop">
+            function <span class="apidocSignatureSpan">haibu.drone.Client.prototype.</span>stop
+            <span class="apidocSignatureSpan">(name, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.haibu.drone.Client.super_.prototype">module haibu.drone.Client.super_.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.drone.Client.super_.prototype._request">
+            function <span class="apidocSignatureSpan">haibu.drone.Client.super_.prototype.</span>_request
+            <span class="apidocSignatureSpan">(options, callback, success)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">haibu.drone.Client.super_.prototype.</span>failCodes</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">haibu.drone.Client.super_.prototype.</span>successCodes</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.haibu.drone.Drone">module haibu.drone.Drone</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.drone.Drone.Drone">
+            function <span class="apidocSignatureSpan">haibu.drone.</span>Drone
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.haibu.drone.Drone.prototype">module haibu.drone.Drone.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.drone.Drone.prototype._add">
+            function <span class="apidocSignatureSpan">haibu.drone.Drone.prototype.</span>_add
+            <span class="apidocSignatureSpan">(app, drone, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.drone.Drone.prototype._autostartFile">
+            function <span class="apidocSignatureSpan">haibu.drone.Drone.prototype.</span>_autostartFile
+            <span class="apidocSignatureSpan">(app)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.drone.Drone.prototype._autostartUpdate">
+            function <span class="apidocSignatureSpan">haibu.drone.Drone.prototype.</span>_autostartUpdate
+            <span class="apidocSignatureSpan">(action, app, drones, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.drone.Drone.prototype._formatRecord">
+            function <span class="apidocSignatureSpan">haibu.drone.Drone.prototype.</span>_formatRecord
+            <span class="apidocSignatureSpan">(record, app)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.drone.Drone.prototype._remove">
+            function <span class="apidocSignatureSpan">haibu.drone.Drone.prototype.</span>_remove
+            <span class="apidocSignatureSpan">(record, drone, cleanup, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.drone.Drone.prototype._update">
+            function <span class="apidocSignatureSpan">haibu.drone.Drone.prototype.</span>_update
+            <span class="apidocSignatureSpan">(record, existing, updated, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.drone.Drone.prototype.clean">
+            function <span class="apidocSignatureSpan">haibu.drone.Drone.prototype.</span>clean
+            <span class="apidocSignatureSpan">(app, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.drone.Drone.prototype.cleanAll">
+            function <span class="apidocSignatureSpan">haibu.drone.Drone.prototype.</span>cleanAll
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.drone.Drone.prototype.deploy">
+            function <span class="apidocSignatureSpan">haibu.drone.Drone.prototype.</span>deploy
+            <span class="apidocSignatureSpan">(userId, appId, stream, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.drone.Drone.prototype.destroy">
+            function <span class="apidocSignatureSpan">haibu.drone.Drone.prototype.</span>destroy
+            <span class="apidocSignatureSpan">(cleanup, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.drone.Drone.prototype.format">
+            function <span class="apidocSignatureSpan">haibu.drone.Drone.prototype.</span>format
+            <span class="apidocSignatureSpan">(app, drone)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.drone.Drone.prototype.list">
+            function <span class="apidocSignatureSpan">haibu.drone.Drone.prototype.</span>list
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.drone.Drone.prototype.restart">
+            function <span class="apidocSignatureSpan">haibu.drone.Drone.prototype.</span>restart
+            <span class="apidocSignatureSpan">(name, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.drone.Drone.prototype.running">
+            function <span class="apidocSignatureSpan">haibu.drone.Drone.prototype.</span>running
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.drone.Drone.prototype.show">
+            function <span class="apidocSignatureSpan">haibu.drone.Drone.prototype.</span>show
+            <span class="apidocSignatureSpan">(name)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.drone.Drone.prototype.start">
+            function <span class="apidocSignatureSpan">haibu.drone.Drone.prototype.</span>start
+            <span class="apidocSignatureSpan">(app, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.drone.Drone.prototype.stop">
+            function <span class="apidocSignatureSpan">haibu.drone.Drone.prototype.</span>stop
+            <span class="apidocSignatureSpan">(name, cleanup, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.drone.Drone.prototype.update">
+            function <span class="apidocSignatureSpan">haibu.drone.Drone.prototype.</span>update
+            <span class="apidocSignatureSpan">(app, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.haibu.haibu">module haibu.haibu</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">haibu.haibu.</span>initialized</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">haibu.haibu.</span>newListener</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">haibu.haibu.</span>wildcard</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.haibu.Spawner">
+            function <span class="apidocSignatureSpan">haibu.haibu.</span>Spawner
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.haibu.getSpawnOptions">
+            function <span class="apidocSignatureSpan">haibu.haibu.</span>getSpawnOptions
+            <span class="apidocSignatureSpan">(target)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.haibu.sendResponse">
+            function <span class="apidocSignatureSpan">haibu.haibu.</span>sendResponse
+            <span class="apidocSignatureSpan">(res, status, body)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">haibu.haibu.</span>_conf</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">haibu.haibu.</span>_events</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">haibu.haibu.</span>advanced-replies</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">haibu.haibu.</span>bootstrapper</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">haibu.haibu.</span>coffee</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">haibu.haibu.</span>common</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">haibu.haibu.</span>config</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">haibu.haibu.</span>drone</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">haibu.haibu.</span>initializers</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">haibu.haibu.</span>initlist</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">haibu.haibu.</span>listenerTree</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">haibu.haibu.</span>options</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">haibu.haibu.</span>plugins</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">haibu.haibu.</span>repository</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">haibu.haibu.</span>running</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">haibu.haibu.</span>useraccounts</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">haibu.haibu.</span>utils</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">haibu.haibu.</span>delimiter</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">haibu.haibu.</span>env</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">haibu.haibu.</span>root</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">haibu.haibu.</span>version</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.haibu.repository">module haibu.repository</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.repository.Repository">
+            function <span class="apidocSignatureSpan">haibu.repository.</span>Repository
+            <span class="apidocSignatureSpan">(app, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.repository.add">
+            function <span class="apidocSignatureSpan">haibu.repository.</span>add
+            <span class="apidocSignatureSpan">(name, constructor)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.repository.create">
+            function <span class="apidocSignatureSpan">haibu.repository.</span>create
+            <span class="apidocSignatureSpan">(app, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.repository.list">
+            function <span class="apidocSignatureSpan">haibu.repository.</span>list
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.repository.remove">
+            function <span class="apidocSignatureSpan">haibu.repository.</span>remove
+            <span class="apidocSignatureSpan">(name)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.repository.validate">
+            function <span class="apidocSignatureSpan">haibu.repository.</span>validate
+            <span class="apidocSignatureSpan">(pkg)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.haibu.repository.Repository">module haibu.repository.Repository</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.repository.Repository.Repository">
+            function <span class="apidocSignatureSpan">haibu.repository.</span>Repository
+            <span class="apidocSignatureSpan">(app, options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.haibu.repository.Repository.prototype">module haibu.repository.Repository.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.repository.Repository.prototype._setHome">
+            function <span class="apidocSignatureSpan">haibu.repository.Repository.prototype.</span>_setHome
+            <span class="apidocSignatureSpan">(path)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.repository.Repository.prototype.bootstrap">
+            function <span class="apidocSignatureSpan">haibu.repository.Repository.prototype.</span>bootstrap
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.repository.Repository.prototype.installDependencies">
+            function <span class="apidocSignatureSpan">haibu.repository.Repository.prototype.</span>installDependencies
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.repository.Repository.prototype.mkdir">
+            function <span class="apidocSignatureSpan">haibu.repository.Repository.prototype.</span>mkdir
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.repository.Repository.prototype.stat">
+            function <span class="apidocSignatureSpan">haibu.repository.Repository.prototype.</span>stat
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.repository.Repository.prototype.validate">
+            function <span class="apidocSignatureSpan">haibu.repository.Repository.prototype.</span>validate
+            <span class="apidocSignatureSpan">(keys, app)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.haibu.useraccounts">module haibu.useraccounts</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.useraccounts.argv">
+            function <span class="apidocSignatureSpan">haibu.useraccounts.</span>argv
+            <span class="apidocSignatureSpan">(repo)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.useraccounts.attach">
+            function <span class="apidocSignatureSpan">haibu.useraccounts.</span>attach
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.useraccounts.init">
+            function <span class="apidocSignatureSpan">haibu.useraccounts.</span>init
+            <span class="apidocSignatureSpan">(done)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">haibu.useraccounts.</span>name</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.haibu.utils">module haibu.utils</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils._errnoException">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>_errnoException
+            <span class="apidocSignatureSpan">(err, syscall, original)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils._exceptionWithHostPort">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>_exceptionWithHostPort
+            <span class="apidocSignatureSpan">(err, syscall, address, port, additional)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils._extend">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>_extend
+            <span class="apidocSignatureSpan">(target, source)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.camelToUnderscore">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>camelToUnderscore
+            <span class="apidocSignatureSpan">(obj)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.capitalize">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>capitalize
+            <span class="apidocSignatureSpan">(lower_case_and_underscored_word, first_letter_in_uppercase)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.clone">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>clone
+            <span class="apidocSignatureSpan">(object, filter)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.createPath">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>createPath
+            <span class="apidocSignatureSpan">(obj, path, value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.debug">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>debug
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.debuglog">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>debuglog
+            <span class="apidocSignatureSpan">(set)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.deprecate">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>deprecate
+            <span class="apidocSignatureSpan">(fn, msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.each">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>each
+            <span class="apidocSignatureSpan">(obj, iterator)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.error">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>error
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.escapeRegExp">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>escapeRegExp
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.filter">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>filter
+            <span class="apidocSignatureSpan">(obj, pred)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.find">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>find
+            <span class="apidocSignatureSpan">(obj, pred)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.getEndKey">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>getEndKey
+            <span class="apidocSignatureSpan">(startKey)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.inherits">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>inherits
+            <span class="apidocSignatureSpan">(ctor, superCtor)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.inspect">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>inspect
+            <span class="apidocSignatureSpan">(obj, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.ipAddress">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>ipAddress
+            <span class="apidocSignatureSpan">(name)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.isArray">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>isArray
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.isBoolean">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>isBoolean
+            <span class="apidocSignatureSpan">(arg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.isBuffer">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>isBuffer
+            <span class="apidocSignatureSpan">(b)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.isDate">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>isDate
+            <span class="apidocSignatureSpan">(d)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.isError">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>isError
+            <span class="apidocSignatureSpan">(e)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.isFunction">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>isFunction
+            <span class="apidocSignatureSpan">(arg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.isNull">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>isNull
+            <span class="apidocSignatureSpan">(arg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.isNullOrUndefined">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>isNullOrUndefined
+            <span class="apidocSignatureSpan">(arg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.isNumber">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>isNumber
+            <span class="apidocSignatureSpan">(arg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.isObject">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>isObject
+            <span class="apidocSignatureSpan">(arg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.isPrimitive">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>isPrimitive
+            <span class="apidocSignatureSpan">(arg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.isRegExp">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>isRegExp
+            <span class="apidocSignatureSpan">(re)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.isString">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>isString
+            <span class="apidocSignatureSpan">(arg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.isSymbol">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>isSymbol
+            <span class="apidocSignatureSpan">(arg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.isUndefined">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>isUndefined
+            <span class="apidocSignatureSpan">(arg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.log">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>log
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.mixin">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>mixin
+            <span class="apidocSignatureSpan">(target)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.pad">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>pad
+            <span class="apidocSignatureSpan">(str, len, chr)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.path">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>path
+            <span class="apidocSignatureSpan">(obj, path)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.print">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>print
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.puts">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>puts
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.randomString">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>randomString
+            <span class="apidocSignatureSpan">(length)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.rargs">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>rargs
+            <span class="apidocSignatureSpan">(_args, slice)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.requireDir">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>requireDir
+            <span class="apidocSignatureSpan">(directory)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.requireDirLazy">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>requireDirLazy
+            <span class="apidocSignatureSpan">(directory)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.rmApp">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>rmApp
+            <span class="apidocSignatureSpan">(appsDir, app, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.rmApps">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>rmApps
+            <span class="apidocSignatureSpan">(appsDir, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.sanitizeAppname">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>sanitizeAppname
+            <span class="apidocSignatureSpan">(name)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.showWelcome">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>showWelcome
+            <span class="apidocSignatureSpan">(role, ipAddress, port)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.templateUsage">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>templateUsage
+            <span class="apidocSignatureSpan">(app, commands)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.tryReaddirSync">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>tryReaddirSync
+            <span class="apidocSignatureSpan">(dir)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.underscoreToCamel">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>underscoreToCamel
+            <span class="apidocSignatureSpan">(obj)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.uuid">
+            function <span class="apidocSignatureSpan">haibu.utils.</span>uuid
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">haibu.utils.</span>directories</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">haibu.utils.</span>npm</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">haibu.utils.</span>welcome</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.haibu.utils.directories">module haibu.utils.directories</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.directories.create">
+            function <span class="apidocSignatureSpan">haibu.utils.directories.</span>create
+            <span class="apidocSignatureSpan">(dirs, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.directories.normalize">
+            function <span class="apidocSignatureSpan">haibu.utils.directories.</span>normalize
+            <span class="apidocSignatureSpan">(keys, dirs)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.directories.remove">
+            function <span class="apidocSignatureSpan">haibu.utils.directories.</span>remove
+            <span class="apidocSignatureSpan">(dirs, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.haibu.utils.npm">module haibu.utils.npm</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.npm.install">
+            function <span class="apidocSignatureSpan">haibu.utils.npm.</span>install
+            <span class="apidocSignatureSpan">(dir, target, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.npm.load">
+            function <span class="apidocSignatureSpan">haibu.utils.npm.</span>load
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.haibu.utils.npm.loadDependencies">
+            function <span class="apidocSignatureSpan">haibu.utils.npm.</span>loadDependencies
+            <span class="apidocSignatureSpan">(app, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.haibu" id="apidoc.module.haibu">module haibu</a></h1>
+
+
+
+
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.Spawner" id="apidoc.element.haibu.Spawner">
+        function <span class="apidocSignatureSpan">haibu.</span>Spawner
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Spawner(options) {
+  options = options || {};
+
+  this.maxRestart = options.maxRestart;
+  this.options    = options
+  this.silent     = options.silent     || false;
+  this.host       = options.host       || &#x27;127.0.0.1&#x27;;
+  this.packageDir = options.packageDir || haibu.config.get(&#x27;directories:packages&#x27;);
+  this.minUptime  = typeof options.minUptime !== &#x27;undefined&#x27; ? options.minUptime : 2000;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.drone.Client" id="apidoc.element.haibu.drone.Client">
+        function <span class="apidocSignatureSpan">haibu.</span>drone.Client
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">drone.Client = function (options) {
+  client.Client.call(this, options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Allows you to call haibu programmatically from inside your node.js scripts.
+
+```javascript
+var eyes = require(&#x27;eyes&#x27;),
+ haibu = require(&#x27;haibu&#x27;);
+
+// Create a new client for communicating with the haibu server
+var client = new haibu.<span class="apidocCodeKeywordSpan">drone.Client</span>({
+  host: &#x27;localhost&#x27;,
+  port: 9002
+});
+
+// A basic package.json for a node.js application on haibu
+var app = {
+&#x22;user&#x22;: &#x22;marak&#x22;,
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.drone.Drone" id="apidoc.element.haibu.drone.Drone">
+        function <span class="apidocSignatureSpan">haibu.</span>drone.Drone
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">drone.Drone = function (options) {
+  options = options || {};
+
+  this.apps        = {};
+  this.drones      = {};
+  this.host        = options.host || &#x27;localhost&#x27;;
+  this.spawner     = new haibu.Spawner(options);
+  this.packagesDir = options.packagesDir || haibu.config.get(&#x27;directories:packages&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.getSpawnOptions" id="apidoc.element.haibu.getSpawnOptions">
+        function <span class="apidocSignatureSpan">haibu.</span>getSpawnOptions
+        <span class="apidocSignatureSpan">(target)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function getSpawnOptions(target) {
+  var options = _spawnOptions.apply(this, arguments);
+  options.env.USER = haibu.config.get(&#x27;useraccounts:prefix&#x27;) + target.user;
+  options.env.HOME = path.join(haibu.config.get(&#x27;directories:apps&#x27;), target.user);
+  options.env.TEMP = path.join(options.env.HOME, target.name, &#x27;.tmp&#x27;);
+  options.env.TMPDIR = path.join(options.env.HOME, target.name, &#x27;.tmp&#x27;);
+  return options;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.repository.Repository" id="apidoc.element.haibu.repository.Repository">
+        function <span class="apidocSignatureSpan">haibu.</span>repository.Repository
+        <span class="apidocSignatureSpan">(app, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">repository.Repository = function (app, options) {
+  options = options || {};
+
+  //
+  // checks all properties of this.app recursively through
+  // all child classes of Repository
+  //
+  this.validate([], app);
+
+  this.app = app;
+  this.app._id = app.name.replace(&#x27; &#x27;, &#x27;-&#x27;);
+  this.appsDir = options.appsDir || haibu.config.get(&#x27;directories:apps&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.sendResponse" id="apidoc.element.haibu.sendResponse">
+        function <span class="apidocSignatureSpan">haibu.</span>sendResponse
+        <span class="apidocSignatureSpan">(res, status, body)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function sendResponse(res, status, body) {
+  return res.json(status, body);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.haibu.Spawner" id="apidoc.module.haibu.Spawner">module haibu.Spawner</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.Spawner.Spawner" id="apidoc.element.haibu.Spawner.Spawner">
+        function <span class="apidocSignatureSpan">haibu.</span>Spawner
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Spawner(options) {
+  options = options || {};
+
+  this.maxRestart = options.maxRestart;
+  this.options    = options
+  this.silent     = options.silent     || false;
+  this.host       = options.host       || &#x27;127.0.0.1&#x27;;
+  this.packageDir = options.packageDir || haibu.config.get(&#x27;directories:packages&#x27;);
+  this.minUptime  = typeof options.minUptime !== &#x27;undefined&#x27; ? options.minUptime : 2000;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.haibu.Spawner.prototype" id="apidoc.module.haibu.Spawner.prototype">module haibu.Spawner.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.Spawner.prototype.spawn" id="apidoc.element.haibu.Spawner.prototype.spawn">
+        function <span class="apidocSignatureSpan">haibu.Spawner.prototype.</span>spawn
+        <span class="apidocSignatureSpan">(repo, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function spawn(repo, callback) {
+  if (!(repo instanceof haibu.repository.Repository)) {
+    var err = new Error(&#x27;Error spawning drone: no repository defined&#x27;);
+    err.blame = {
+      type: &#x27;user&#x27;,
+      message: &#x27;Repository configuration&#x27;
+    }
+    return callback(err);
+  }
+
+  var self = this,
+      app  = repo.app,
+      meta = { app: app.name, user: app.user },
+      script = repo.startScript,
+      result,
+      responded = false,
+      stderr = [],
+      stdout = [],
+      options = [&#x27;--plugin&#x27;, &#x27;net&#x27;],
+      foreverOptions,
+      carapaceBin,
+      timeout,
+      error,
+      drone;
+
+  haibu.emit(&#x27;spawn:setup&#x27;, &#x27;info&#x27;, meta);
+
+  try {
+    var spawnOptions = haibu.getSpawnOptions(app);
+  }
+  catch (e) {
+    return callback(e);
+  }
+
+  foreverOptions = {
+    fork:      true,
+    silent:    true,
+    stdio:     [ &#x27;ipc&#x27;, &#x27;pipe&#x27;, &#x27;pipe&#x27; ],
+    cwd:       repo.homeDir,
+    hideEnv:   haibu.config.get(&#x27;hideEnv&#x27;),
+    env:       spawnOptions.env,
+    killTree:  true,
+    killTTL:   0,
+    minUptime: this.minUptime,
+    command:   spawnOptions.command,
+    options:   [spawnOptions.carapaceBin].concat(options)
+  };
+
+  //
+  // Concatenate the `argv` of any plugins onto the options
+  // to be passed to the carapace script.
+  //
+  Object.keys(haibu.plugins).forEach(function (plugin) {
+    var spawn;
+
+    if (haibu.plugins[plugin].argv) {
+      haibu.emit(&#x27;plugin:argv&#x27;, &#x27;info&#x27;, {
+        app: app.name,
+        user: app.user,
+        plugin: plugin
+      });
+
+      spawn = haibu.plugins[plugin].argv(repo);
+
+      if (spawn.script) {
+        script = spawn.script
+      }
+
+      if (spawn.argv) {
+        foreverOptions.options = foreverOptions.options.concat(spawn.argv);
+      }
+    }
+  });
+
+  foreverOptions.forever = typeof self.maxRestart === &#x27;undefined&#x27;;
+  if (typeof self.maxRestart !== &#x27;undefined&#x27;) {
+    foreverOptions.max = self.maxRestart;
+  }
+
+  //
+  // Before we attempt to spawn, let&#x27;s check if the startPath actually points to a file
+  // Trapping this specific error is useful as the error indicates an incorrect
+  // scripts.start property in the package.json
+  //
+  fs.stat(repo.startScript, function (err, stats) {
+    if (err) {
+      var err = new Error(&#x27;package.json error: &#x27; + &#x27;can\&#x27;t find starting script: &#x27; + repo.app.scripts.start);
+      err.blame = {
+        type: &#x27;user&#x27;,
+        message: &#x27;Package.json start script declared but not found&#x27;
+      }
+      return callback(err);
+    }
+
+    foreverOptions.options.push(script);
+    carapaceBin = foreverOptions.options.shift();
+    drone = new forever.Monitor(carapaceBin, foreverOptions);
+    drone.on(&#x27;error&#x27;, function () {
+      //
+      // &#x27;error&#x27; event needs to be caught, otherwise
+      // the haibu process will die
+      //
+    });
+
+    haibu.emit([&#x27;spawn&#x27;, &#x27;begin&#x27;], &#x27;info&#x27;, {
+      options: foreverOptions.options.join(&#x27; &#x27;),
+      app: meta.app,
+      user: meta.user,
+      drone: drone,
+      pkg: app
+    });
+
+    //
+    // Log data from `drone.stdout` to haibu
+    //
+    function onStdout (data) {
+      data = data.toString();
+      haibu.emit(&#x27;drone:stdout&#x27;, &#x27;info&#x27;, data, meta);
+
+      if (!responded) {
+        stdout = stdout.concat(data.split(&#x27;\n&#x27;).filter(function (line) { return line.length &#x3e; 0 }));
+      }
+    }
+
+    //
+    // Log data from `drone.stderr` to haibu
+    //
+    function onStderr (data) {
+      data = data.toString();
+      haibu.emit(&#x27;drone:stderr&#x27;, &#x27;error&#x27;, data, meta);
+
+      if (!responded) {
+        stderr = stderr.concat(data.split(&#x27;\n&#x27;).filter(function (line) { return line.length &#x3e; 0 }));
+      }
+    }
+
+    //
+    // If the `forever.Monitor` instance emits an error then
+    // pass this error back up to the callback.
+    //
+    // (remark) this may not work if haibu starts two apps at the same time
+    //
+    function onError (err) {
+      if (!responded) {
+        errState = true;
+        responded = true;
+        callback(err);
+
+        //
+        // Remove listeners to related events.
+        //
+        drone.removeListener(&#x27;exit&#x27;, onExit);
+        drone.removeListener(&#x27;message&#x27;, onCarapacePort);
+        clearTimeout(timeout); ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.Spawner.prototype.trySpawn" id="apidoc.element.haibu.Spawner.prototype.trySpawn">
+        function <span class="apidocSignatureSpan">haibu.Spawner.prototype.</span>trySpawn
+        <span class="apidocSignatureSpan">(app, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">trySpawn = function (app, callback) {
+  var self = this,
+      repo;
+
+  try { repo = app instanceof haibu.repository.Repository ? app : haibu.repository.create(app) }
+  catch (ex) { return callback(ex) }
+
+  if (repo instanceof Error) {
+    return callback(repo);
+  }
+
+  repo.bootstrap(function (err, existed) {
+    if (err) {
+      return callback(err);
+    }
+    else if (existed) {
+      return self.spawn(repo, callback);
+    }
+
+    repo.init(function (err, inited) {
+      if (err) {
+        return callback(err);
+      }
+
+      self.spawn(repo, callback);
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.haibu.advanced-replies" id="apidoc.module.haibu.advanced-replies">module haibu.advanced-replies</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.advanced-replies.attach" id="apidoc.element.haibu.advanced-replies.attach">
+        function <span class="apidocSignatureSpan">haibu.advanced-replies.</span>attach
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function attach() {
+  haibu.sendResponse = function sendResponse(res, status, body) {
+    var that = this, $args = arguments;
+    body.time = Date.now();
+    body.server = serverName;
+    //
+    // TODO: Is there a way to be notified when IP changes?
+    //  Doing this every time is a bit odd.
+    //
+    exec(&#x27;ifconfig | grep \&#x27;inet addr:\&#x27; | grep -v \&#x27;127.0.0.1\&#x27; | cut -d: -f2 | awk \&#x27;{ print $1}\&#x27;&#x27;, function (err, stdout, stderr
+) {
+      body.ips = (stdout + &#x27;&#x27;).trim();
+      return _sendResponse.apply(that, $args);
+    })
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.advanced-replies.init" id="apidoc.element.haibu.advanced-replies.init">
+        function <span class="apidocSignatureSpan">haibu.advanced-replies.</span>init
+        <span class="apidocSignatureSpan">(done)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">init = function (done) {
+  done();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.haibu.bootstrapper" id="apidoc.module.haibu.bootstrapper">module haibu.bootstrapper</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.bootstrapper.bootstrap" id="apidoc.element.haibu.bootstrapper.bootstrap">
+        function <span class="apidocSignatureSpan">haibu.bootstrapper.</span>bootstrap
+        <span class="apidocSignatureSpan">(app)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">bootstrap = function (app) {
+  app.options[&#x27;config&#x27;]        = app.options[&#x27;config&#x27;] || {};
+  app.options[&#x27;config&#x27;].init   = false;
+  app.use(broadway.plugins.config);
+
+  //
+  // Remove initializers run by the bootstrapper.
+  //
+  delete app.initializers[&#x27;config&#x27;];
+  app.initlist.pop();
+
+  //
+  // Set the current environment in the config
+  //
+  app.config.set(&#x27;env&#x27;, app.env);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.bootstrapper.init" id="apidoc.element.haibu.bootstrapper.init">
+        function <span class="apidocSignatureSpan">haibu.bootstrapper.</span>init
+        <span class="apidocSignatureSpan">(app, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">init = function (app, callback) {
+  broadway.plugins.config.init.call(app, function (err) {
+    if (err) {
+      return callback(err);
+    }
+
+    if (app.config.get(&#x27;handleExceptions&#x27;)) {
+      app.use(broadway.plugins.exceptions, app.options[&#x27;exceptions&#x27;] || {});
+    }
+
+    app.use(broadway.plugins.directories, app.options[&#x27;directories&#x27;] || {});
+    app.use(broadway.plugins.log, app.options[&#x27;log&#x27;] || {});
+
+    //
+    // Ensure the `directories` and `log` plugins initialize before
+    // any other plugins.
+    //
+    app.initlist.unshift.apply(
+      app.initlist,
+      app.initlist.splice(-2, 2)
+    );
+
+    callback();
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.haibu.coffee" id="apidoc.module.haibu.coffee">module haibu.coffee</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.coffee.argv" id="apidoc.element.haibu.coffee.argv">
+        function <span class="apidocSignatureSpan">haibu.coffee.</span>argv
+        <span class="apidocSignatureSpan">(repo)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function argv(repo) {
+  if (repo.executable === &#x27;coffee&#x27;) {
+    return {
+      argv: [&#x27;--plugin&#x27;, &#x27;coffee&#x27;, &#x27;--coffee&#x27;, &#x27;true&#x27;]
+    }
+  }
+  return {
+    argv: [&#x27;--plugin&#x27;, &#x27;coffee&#x27;]
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.coffee.attach" id="apidoc.element.haibu.coffee.attach">
+        function <span class="apidocSignatureSpan">haibu.coffee.</span>attach
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function attach(options) {
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.coffee.init" id="apidoc.element.haibu.coffee.init">
+        function <span class="apidocSignatureSpan">haibu.coffee.</span>init
+        <span class="apidocSignatureSpan">(done)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">init = function (done) {
+  done();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.haibu.drone" id="apidoc.module.haibu.drone">module haibu.drone</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.drone.Client" id="apidoc.element.haibu.drone.Client">
+        function <span class="apidocSignatureSpan">haibu.drone.</span>Client
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Client = function (options) {
+  client.Client.call(this, options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Allows you to call haibu programmatically from inside your node.js scripts.
+
+```javascript
+var eyes = require(&#x27;eyes&#x27;),
+ haibu = require(&#x27;haibu&#x27;);
+
+// Create a new client for communicating with the haibu server
+var client = new haibu.drone.<span class="apidocCodeKeywordSpan">Client</span>({
+  host: &#x27;localhost&#x27;,
+  port: 9002
+});
+
+// A basic package.json for a node.js application on haibu
+var app = {
+&#x22;user&#x22;: &#x22;marak&#x22;,
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.drone.Drone" id="apidoc.element.haibu.drone.Drone">
+        function <span class="apidocSignatureSpan">haibu.drone.</span>Drone
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Drone = function (options) {
+  options = options || {};
+
+  this.apps        = {};
+  this.drones      = {};
+  this.host        = options.host || &#x27;localhost&#x27;;
+  this.spawner     = new haibu.Spawner(options);
+  this.packagesDir = options.packagesDir || haibu.config.get(&#x27;directories:packages&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.drone.autostart" id="apidoc.element.haibu.drone.autostart">
+        function <span class="apidocSignatureSpan">haibu.drone.</span>autostart
+        <span class="apidocSignatureSpan">(server, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">autostart = function (server, callback) {
+  var autostartDir = haibu.config.get(&#x27;directories:autostart&#x27;);
+
+  //
+  // Helper function which starts multiple drones
+  // a given application.
+  //
+  function startDrones (pkg, done) {
+    if (pkg.drones == 0) {
+      return done();
+    }
+
+    var started = 0;
+
+    async.whilst(function () {
+      return started &#x3c; pkg.drones;
+    }, function (next) {
+      started++;
+      server.drone.start(pkg, next);
+    }, done);
+  }
+
+  //
+  // Find all drones in directory:
+  //   %dir/%sanitized_name.json
+  //
+  fs.readdir(autostartDir, function (err, files) {
+    if (err) {
+      return callback(err);
+    }
+
+    async.map(files, function (file, next) {
+      //
+      // Read each `package.json` manifest file and start
+      // the appropriate drones in this `haibu` instance.
+      //
+      fs.readFile(path.join(autostartDir, file), function (err, pkg) {
+        if (err) {
+          return callback(err);
+        }
+
+        //
+        // Read the contents of the package.json manifest,
+        // which should be JSON
+        //
+        try {
+          pkg = JSON.parse(pkg.toString());
+        }
+        catch (ex) {
+          return callback(ex);
+        }
+
+        startDrones(pkg, next);
+      });
+    }, callback);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.drone.start" id="apidoc.element.haibu.drone.start">
+        function <span class="apidocSignatureSpan">haibu.drone.</span>start
+        <span class="apidocSignatureSpan">(options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">start = function (options, callback) {
+  if (exports.started) {
+    return callback(null, haibu.running.server);
+  }
+
+  function tryAutostart (server) {
+    exports.autostart(server, function (err) {
+      //
+      // Ignore errors from autostart and continue
+      // bringing up the haibu `drone` server.
+      //
+      // Remark: We should report the `err` somewhere
+      //
+      haibu.emit(&#x27;start&#x27;);
+      callback(null, server);
+    });
+  }
+
+  function startServer (err) {
+    if (err) {
+      return callback(err);
+    }
+
+    //
+    // Create the server and add the new `http.Server`
+    // and `haibu.drone.Drone` instance into the `haibu.running`
+    // namespace.
+    //
+    var drone = new haibu.drone.Drone(options);
+
+    //
+    // Setup the `union` server through `flatiron.plugins.http`
+    // and then add routes.
+    //
+    haibu.use(flatiron.plugins.http, options.http || {});
+    require(&#x27;./service&#x27;).createRouter(drone);
+
+    if (options.port) {
+      haibu.listen(options.port);
+    }
+
+    haibu.running.server = haibu.server;
+    haibu.running.drone  = haibu.server.drone = drone;
+    haibu.running.ports  = {};
+
+    //
+    // There is a current bug in node that throws here:
+    //
+    // https://github.com/joyent/node/blob/v0.4.12/lib/net.js#L159
+    //
+    // It will throw a broken pipe error (EPIPE) when a child process that you
+    // are piping to unexpectedly exits. The write function on line 159 is
+    // defined here:
+    //
+    // https://github.com/joyent/node/blob/v0.4.12/lib/net.js#L62
+    //
+    // This uncaughtExceptionHandler will catch that error,
+    // and since it originated with in another sync context,
+    // this section will still respond to the request.
+    //
+    haibu.plugins.exceptions.logger.exitOnError = function (err) {
+      if (err.code === &#x27;EPIPE&#x27;) {
+        console.log(&#x27;expected error:&#x27;);
+        console.log(&#x27;EPIPE -- probabaly caused by someone pushing a non gzip file.&#x27;);
+        console.log(&#x27;&#x22;net&#x22; throws on a broken pipe, current node bug, not haibu.&#x27;);
+        return false;
+      }
+
+      return true;
+    };
+
+    //
+    // Attempt to autostart any applications and respond.
+    //
+    tryAutostart(haibu.server);
+  }
+
+  //
+  // Indicate that `haibu.drone` has started
+  //
+  exports.started = true;
+
+  return haibu.initialized
+    ? startServer()
+    : haibu.init(options, startServer);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ },
+ &#x22;scripts&#x22;: {
+   &#x22;start&#x22;: &#x22;server.js&#x22;
+ }
+};
+
+// Attempt to start up a new application
+client.<span class="apidocCodeKeywordSpan">start</span>(app, function (err, result) {
+if (err) {
+  console.log(&#x27;Error spawning app: &#x27; + app.name);
+  return eyes.inspect(err);
+}
+
+console.log(&#x27;Successfully spawned app:&#x27;);
+eyes.inspect(result);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.drone.stop" id="apidoc.element.haibu.drone.stop">
+        function <span class="apidocSignatureSpan">haibu.drone.</span>stop
+        <span class="apidocSignatureSpan">(cleanup, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">stop = function (cleanup, callback) {
+  if (!callback &#x26;&#x26; typeof cleanup === &#x27;function&#x27;) {
+    callback = cleanup;
+    cleanup = true;
+  }
+
+  if (!exports.started) {
+    return callback ? callback() : null;
+  }
+
+  exports.started = false;
+  haibu.running.server.close();
+
+  // Terminate drones
+  haibu.running.drone.destroy(cleanup, callback || function () {});
+  haibu.running = {};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.haibu.drone.Client" id="apidoc.module.haibu.drone.Client">module haibu.drone.Client</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.drone.Client.Client" id="apidoc.element.haibu.drone.Client.Client">
+        function <span class="apidocSignatureSpan">haibu.drone.</span>Client
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Client = function (options) {
+  client.Client.call(this, options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Allows you to call haibu programmatically from inside your node.js scripts.
+
+```javascript
+var eyes = require(&#x27;eyes&#x27;),
+ haibu = require(&#x27;haibu&#x27;);
+
+// Create a new client for communicating with the haibu server
+var client = new haibu.drone.<span class="apidocCodeKeywordSpan">Client</span>({
+  host: &#x27;localhost&#x27;,
+  port: 9002
+});
+
+// A basic package.json for a node.js application on haibu
+var app = {
+&#x22;user&#x22;: &#x22;marak&#x22;,
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.drone.Client.super_" id="apidoc.element.haibu.drone.Client.super_">
+        function <span class="apidocSignatureSpan">haibu.drone.Client.</span>super_
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">super_ = function (options) {
+  this.options = options || {};
+
+  if (typeof this.options.get !== &#x27;function&#x27;) {
+    this.options.get = function (key) {
+      return this[key];
+    };
+  }
+
+  this.config = {
+    host: options.host || &#x27;localhost&#x27;,
+    port: options.port || 9002
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.haibu.drone.Client.prototype" id="apidoc.module.haibu.drone.Client.prototype">module haibu.drone.Client.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.drone.Client.prototype.clean" id="apidoc.element.haibu.drone.Client.prototype.clean">
+        function <span class="apidocSignatureSpan">haibu.drone.Client.prototype.</span>clean
+        <span class="apidocSignatureSpan">(app, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">clean = function (app, callback) {
+  this._request({
+    method: &#x27;POST&#x27;,
+    path: &#x27;/drones/&#x27; + app.name + &#x27;/clean&#x27;,
+    body: app
+  }, callback, function (res, result) {
+    callback(null, result);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.drone.Client.prototype.cleanAll" id="apidoc.element.haibu.drone.Client.prototype.cleanAll">
+        function <span class="apidocSignatureSpan">haibu.drone.Client.prototype.</span>cleanAll
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">cleanAll = function (callback) {
+  this._request({
+    method: &#x27;POST&#x27;,
+    path: &#x27;/drones/cleanall&#x27;
+  }, callback, function (res) {
+    callback();
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.drone.Client.prototype.get" id="apidoc.element.haibu.drone.Client.prototype.get">
+        function <span class="apidocSignatureSpan">haibu.drone.Client.prototype.</span>get
+        <span class="apidocSignatureSpan">(name, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">get = function (name, callback) {
+  this._request(&#x27;/drones/&#x27; + name, callback, function (res, result) {
+    callback(null, result);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.drone.Client.prototype.restart" id="apidoc.element.haibu.drone.Client.prototype.restart">
+        function <span class="apidocSignatureSpan">haibu.drone.Client.prototype.</span>restart
+        <span class="apidocSignatureSpan">(name, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">restart = function (name, callback) {
+  this._request({
+    method: &#x27;POST&#x27;,
+    path: &#x27;/drones/&#x27; + name + &#x27;/restart&#x27;,
+    body: { restart: { name: name } }
+  }, callback, function (res, result) {
+    callback(null, result.drones);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.drone.Client.prototype.start" id="apidoc.element.haibu.drone.Client.prototype.start">
+        function <span class="apidocSignatureSpan">haibu.drone.Client.prototype.</span>start
+        <span class="apidocSignatureSpan">(app, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">start = function (app, callback) {
+  this._request({
+    method: &#x27;POST&#x27;,
+    path: &#x27;/drones/&#x27; + app.name + &#x27;/start&#x27;,
+    body: { start: app }
+  }, callback, function (res, result) {
+    callback(null, result);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ },
+ &#x22;scripts&#x22;: {
+   &#x22;start&#x22;: &#x22;server.js&#x22;
+ }
+};
+
+// Attempt to start up a new application
+client.<span class="apidocCodeKeywordSpan">start</span>(app, function (err, result) {
+if (err) {
+  console.log(&#x27;Error spawning app: &#x27; + app.name);
+  return eyes.inspect(err);
+}
+
+console.log(&#x27;Successfully spawned app:&#x27;);
+eyes.inspect(result);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.drone.Client.prototype.stop" id="apidoc.element.haibu.drone.Client.prototype.stop">
+        function <span class="apidocSignatureSpan">haibu.drone.Client.prototype.</span>stop
+        <span class="apidocSignatureSpan">(name, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">stop = function (name, callback) {
+  this._request({
+    method: &#x27;POST&#x27;,
+    path: &#x27;/drones/&#x27; + name + &#x27;/stop&#x27;,
+    body: { stop: { name: name } }
+  }, callback, function (res, result) {
+    callback(null, null);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.haibu.drone.Client.super_.prototype" id="apidoc.module.haibu.drone.Client.super_.prototype">module haibu.drone.Client.super_.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.drone.Client.super_.prototype._request" id="apidoc.element.haibu.drone.Client.super_.prototype._request">
+        function <span class="apidocSignatureSpan">haibu.drone.Client.super_.prototype.</span>_request
+        <span class="apidocSignatureSpan">(options, callback, success)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_request = function (options, callback, success) {
+  var self = this;
+
+  if (typeof options === &#x27;string&#x27;) {
+    options = { path: options };
+  }
+
+  options.method  = options.method || &#x27;GET&#x27;;
+  options.uri     = this.remoteUri + options.path;
+  options.headers = options.headers || {};
+  options.headers[&#x27;content-type&#x27;] = options.headers[&#x27;content-type&#x27;] || &#x27;application/json&#x27;;
+
+  if (options.headers[&#x27;content-type&#x27;] === &#x27;application/json&#x27;
+    &#x26;&#x26; options.body) {
+    options.body = JSON.stringify(options.body);
+  }
+
+  return request(options, function (err, response, body) {
+    if (err) {
+      return callback(err);
+    }
+
+    var statusCode = response.statusCode.toString(),
+        result,
+        error;
+
+    try {
+      result = JSON.parse(body);
+    }
+    catch (ex) {
+      // Ignore Errors
+    }
+
+    if (Object.keys(self.failCodes).indexOf(statusCode) !== -1) {
+      error = new Error(&#x27;haibu Error (&#x27; + statusCode + &#x27;): &#x27; + self.failCodes[statusCode]);
+      error.result = result;
+      error.status = statusCode;
+      return callback(error);
+    }
+
+    success(response, result);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.haibu.drone.Drone" id="apidoc.module.haibu.drone.Drone">module haibu.drone.Drone</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.drone.Drone.Drone" id="apidoc.element.haibu.drone.Drone.Drone">
+        function <span class="apidocSignatureSpan">haibu.drone.</span>Drone
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Drone = function (options) {
+  options = options || {};
+
+  this.apps        = {};
+  this.drones      = {};
+  this.host        = options.host || &#x27;localhost&#x27;;
+  this.spawner     = new haibu.Spawner(options);
+  this.packagesDir = options.packagesDir || haibu.config.get(&#x27;directories:packages&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.haibu.drone.Drone.prototype" id="apidoc.module.haibu.drone.Drone.prototype">module haibu.drone.Drone.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.drone.Drone.prototype._add" id="apidoc.element.haibu.drone.Drone.prototype._add">
+        function <span class="apidocSignatureSpan">haibu.drone.Drone.prototype.</span>_add
+        <span class="apidocSignatureSpan">(app, drone, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_add = function (app, drone, callback) {
+  //
+  // Create a record for this app if it doesn&#x27;t exist
+  //
+  this.apps[app.name] = this.apps[app.name] || {};
+
+  var self = this,
+      record = this.apps[app.name];
+
+  if (!record.app) {
+    //
+    // If we have not yet created a record for this app
+    // then sanitize the data in the app and update the record.
+    //
+    [&#x27;domain&#x27;, &#x27;domains&#x27;, &#x27;subdomain&#x27;, &#x27;subdomains&#x27;].forEach(function (prop) {
+      if (!app[prop]) {
+        return;
+      }
+
+      if (Array.isArray(app[prop])) {
+        app[prop] = app[prop].map(function (value) {
+          return value.toLowerCase();
+        });
+      }
+      else if (typeof app[prop] === &#x27;string&#x27;) {
+        app[prop].toLowerCase();
+      }
+    });
+
+    record.app = app;
+    record.drones = {};
+  }
+
+  var uid = drone.monitor.uid;
+  record.drones[uid] = drone;
+
+  //
+  // In the event that the drone unexpectedly restarts,
+  // we need to update the record with the new uid so that
+  // we can control it later on.
+  //
+  drone.monitor.on(&#x27;restart&#x27;, function (_, data) {
+    self._update(record, uid, data);
+    uid = data.uid;
+  });
+
+  this._autostartUpdate(&#x27;add&#x27;, app, record.drones, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.drone.Drone.prototype._autostartFile" id="apidoc.element.haibu.drone.Drone.prototype._autostartFile">
+        function <span class="apidocSignatureSpan">haibu.drone.Drone.prototype.</span>_autostartFile
+        <span class="apidocSignatureSpan">(app)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_autostartFile = function (app) {
+  var appname = haibu.common.sanitizeAppname(app.name);
+  return path.join(haibu.config.get(&#x27;directories:autostart&#x27;), appname + &#x27;.json&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.drone.Drone.prototype._autostartUpdate" id="apidoc.element.haibu.drone.Drone.prototype._autostartUpdate">
+        function <span class="apidocSignatureSpan">haibu.drone.Drone.prototype.</span>_autostartUpdate
+        <span class="apidocSignatureSpan">(action, app, drones, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_autostartUpdate = function (action, app, drones, callback) {
+  var _drones = app.drones,
+      autostartFile = this._autostartFile(app),
+      dronesCount = Object.keys(drones).length,
+      appJson;
+
+  app.drones = dronesCount;
+  appJson = JSON.stringify(app);
+  app.drones = _drones;
+
+  // If app has no drones - remove autostart file
+  if (action === &#x27;remove&#x27; &#x26;&#x26; dronesCount == 0) {
+    return fs.unlink(autostartFile, callback);
+  }
+
+  function writeFile() {
+    fs.writeFile(autostartFile, appJson, callback);
+  }
+
+  //
+  // Attempt to read any  old `autostartFile`; if it
+  // doesn&#x27;t exist, overwrite it. Otherwise, update it
+  // based on the `action` supplied.
+  //
+  fs.readFile(autostartFile, function (err, contents) {
+    if (err) {
+      return writeFile();
+    }
+
+    try {
+      contents = JSON.parse(contents.toString());
+    }
+    catch (ex) {
+      return writeFile();
+    }
+
+    //
+    // Update file only if:
+    // action == &#x27;add&#x27;: drones count less than in new app
+    // action == &#x27;remove&#x27;: drones count greater than in new app
+    //
+    if (action === &#x27;add&#x27; &#x26;&#x26; contents.drones &#x3c; app.drones ||
+        action === &#x27;remove&#x27; &#x26;&#x26; contents.drones &#x3e; app.drones) {
+      return writeFile();
+    }
+
+    callback();
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.drone.Drone.prototype._formatRecord" id="apidoc.element.haibu.drone.Drone.prototype._formatRecord">
+        function <span class="apidocSignatureSpan">haibu.drone.Drone.prototype.</span>_formatRecord
+        <span class="apidocSignatureSpan">(record, app)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_formatRecord = function (record, app) {
+  var response = haibu.common.clone(record.data);
+  response.repository = null;
+
+  if (record.socket &#x26;&#x26; record.socket.port) {
+    response.port = record.socket.port;
+    response.host = record.socket.host;
+    response.hash = record.hash;
+  }
+
+  response.host = response.host || this.host || &#x27;localhost&#x27;;
+
+  if (app) {
+    response.name = app.name;
+    response.user = app.user;
+  }
+
+  return response;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.drone.Drone.prototype._remove" id="apidoc.element.haibu.drone.Drone.prototype._remove">
+        function <span class="apidocSignatureSpan">haibu.drone.Drone.prototype.</span>_remove
+        <span class="apidocSignatureSpan">(record, drone, cleanup, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_remove = function (record, drone, cleanup, callback) {
+  var self = this;
+
+  if (typeof cleanup !== &#x27;boolean&#x27;) {
+    callback = cleanup;
+    cleanup = true;
+  }
+
+  delete record.drones[drone.monitor.uid];
+
+  //
+  // If there are no more drones for this app
+  // delete the entire app
+  //
+  if (Object.keys(record.drones).length === 0) {
+    delete self.apps[record.app.name];
+  }
+
+  if (cleanup) {
+    this._autostartUpdate(&#x27;remove&#x27;, record.app, record.drones, callback);
+  }
+  else {
+    callback();
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.drone.Drone.prototype._update" id="apidoc.element.haibu.drone.Drone.prototype._update">
+        function <span class="apidocSignatureSpan">haibu.drone.Drone.prototype.</span>_update
+        <span class="apidocSignatureSpan">(record, existing, updated, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_update = function (record, existing, updated, callback) {
+  callback = callback || function () {};
+
+  var drone = record.drones[existing];
+  drone.process = drone.monitor.child;
+  drone.data = updated;
+  record.drones[updated.uid] = drone;
+
+  callback();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.drone.Drone.prototype.clean" id="apidoc.element.haibu.drone.Drone.prototype.clean">
+        function <span class="apidocSignatureSpan">haibu.drone.Drone.prototype.</span>clean
+        <span class="apidocSignatureSpan">(app, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">clean = function (app, callback) {
+  if (!app || !app.user || !app.name) {
+    return callback(new Error(&#x27;Both `user` and `name` are required.&#x27;));
+  }
+
+  var self = this,
+      appsDir = haibu.config.get(&#x27;directories:apps&#x27;);
+
+  this.stop(app.name, function (err, result) {
+    //
+    // Ignore errors and continue cleaning
+    //
+    if (err) {
+      haibu.emit(&#x27;drone:clean:warning&#x27;, err);
+    }
+    haibu.common.rmApp(appsDir, app, callback);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.drone.Drone.prototype.cleanAll" id="apidoc.element.haibu.drone.Drone.prototype.cleanAll">
+        function <span class="apidocSignatureSpan">haibu.drone.Drone.prototype.</span>cleanAll
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">cleanAll = function (callback) {
+  var self = this,
+      appsDir = haibu.config.get(&#x27;directories:apps&#x27;),
+      autostartDir = haibu.config.get(&#x27;directories:autostart&#x27;);
+
+  function forceStop (name, next) {
+    self.stop(name, function (err) {
+      //
+      // Ignore errors here.
+      //
+      if (err) {
+        haibu.emit(&#x27;drone:cleanAll:warning&#x27;, err);
+      }
+      else {
+        haibu.emit(&#x27;drone:cleanAll:success&#x27;, name);
+      }
+      next();
+    });
+  }
+
+  async.forEach(Object.keys(this.apps), forceStop, function cleanFiles () {
+    //
+    // Reset `this.apps`, then remove all files in the `apps` and
+    // `autostart` dir(s).
+    //
+    self.apps = {};
+    haibu.emit(&#x27;drone:cleanAll:end&#x27;);
+    async.forEach([appsDir, autostartDir], haibu.common.rmApps, callback);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.drone.Drone.prototype.deploy" id="apidoc.element.haibu.drone.Drone.prototype.deploy">
+        function <span class="apidocSignatureSpan">haibu.drone.Drone.prototype.</span>deploy
+        <span class="apidocSignatureSpan">(userId, appId, stream, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">deploy = function (userId, appId, stream, callback) {
+  var untarDir = path.join(this.packagesDir, [userId, appId, Date.now()].join(&#x27;-&#x27;)),
+      sha = crypto.createHash(&#x27;sha1&#x27;),
+      self = this;
+
+  function updateSha (chunk) {
+    sha.update(chunk);
+  }
+
+  //
+  // Update the shasum for the package being streamed
+  // as it comes in and prehash any buffered chunks.
+  //
+  stream.on(&#x27;data&#x27;, updateSha);
+  if (stream.chunks) {
+    stream.chunks.forEach(updateSha);
+  }
+
+  //
+  // Handle error caused by `zlib.Gunzip` or `tar.Extract` failure
+  //
+  function onError(err) {
+    err.usage = &#x27;tar -cvz . | curl -sSNT- HOST/deploy/USER/APP&#x27;;
+    err.blame = {
+      type: &#x27;system&#x27;,
+      message: &#x27;Unable to unpack tarball&#x27;
+    };
+    return callback(err);
+  }
+
+  function onEnd() {
+    //
+    // Stop updating the sha since the stream is now closed.
+    //
+    stream.removeListener(&#x27;data&#x27;, updateSha);
+
+    //
+    // When decompression is done, then read the `package.json`
+    // file and attempt to start the drone via `this.start()`.
+    //
+    haibu.common.file.readJson(path.join(untarDir, &#x27;package.json&#x27;), function (err, pkg) {
+      if (err) {
+        err.usage = &#x27;Submit a tar with a package.json containing a start script&#x27;
+        return callback(err);
+      }
+
+      pkg.user = userId;
+      pkg.name = appId;
+      pkg.hash = sha.digest(&#x27;hex&#x27;);
+      pkg.repository = {
+        type: &#x27;local&#x27;,
+        directory: untarDir
+      };
+
+      self.start(pkg, function (err, result) {
+        if (err) {
+          haibu.emit([pkg.user, pkg.name, &#x27;error&#x27;, &#x27;service&#x27;], &#x27;error&#x27;, err);
+          return callback(err);
+        }
+
+        var record = self.apps[appId];
+        result.hash = pkg.hash;
+        return callback(null, self._formatRecord(record.drones[result.uid], record.app));
+      });
+    });
+  }
+
+  //
+  // Create a temporary directory to untar the streamed data
+  // into and pipe the stream data to a child `tar` process.
+  //
+  fs.mkdir(untarDir, &#x27;0755&#x27;, function (err) {
+    //
+    // Create a tar extractor and pipe incoming stream to it.
+    //
+    stream.pipe(zlib.Gunzip())
+      .on(&#x27;error&#x27;, onError)
+      .pipe(new tar.Extract({ path: untarDir }))
+      .on(&#x27;error&#x27;, onError)
+      .on(&#x27;end&#x27;, onEnd);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.drone.Drone.prototype.destroy" id="apidoc.element.haibu.drone.Drone.prototype.destroy">
+        function <span class="apidocSignatureSpan">haibu.drone.Drone.prototype.</span>destroy
+        <span class="apidocSignatureSpan">(cleanup, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">destroy = function (cleanup, callback) {
+  var self = this;
+  async.forEach(Object.keys(this.apps), function (name, callback) {
+    self.stop(name, cleanup, callback);
+  }, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.drone.Drone.prototype.format" id="apidoc.element.haibu.drone.Drone.prototype.format">
+        function <span class="apidocSignatureSpan">haibu.drone.Drone.prototype.</span>format
+        <span class="apidocSignatureSpan">(app, drone)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">format = function (app, drone) {
+  var hosts = drone.host.split(&#x27; &#x27;),
+      host2 = hosts.pop(),
+      host1 = hosts.pop();
+
+  return {
+    user:      app.user,
+    name:      app.name,
+    version:   app.version,
+    ctime:     drone.ctime,
+    host:      host1 || host2,
+    host2:     host2,
+    hash:      drone.hash,
+    port:      drone.port,
+    haibuPort: drone.port
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.drone.Drone.prototype.list" id="apidoc.element.haibu.drone.Drone.prototype.list">
+        function <span class="apidocSignatureSpan">haibu.drone.Drone.prototype.</span>list
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">list = function () {
+  var self = this,
+      allApps = {};
+
+  Object.keys(this.apps).forEach(function (name) {
+    allApps[name] = self.show(name);
+  });
+
+  return allApps;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.drone.Drone.prototype.restart" id="apidoc.element.haibu.drone.Drone.prototype.restart">
+        function <span class="apidocSignatureSpan">haibu.drone.Drone.prototype.</span>restart
+        <span class="apidocSignatureSpan">(name, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">restart = function (name, callback) {
+  if (!this.apps || !this.apps[name]) {
+    return callback(new Error(&#x27;Cannot restart application that is not running.&#x27;));
+  }
+
+  var self = this,
+      record = this.apps[name],
+      keys = Object.keys(record.drones),
+      processes = [];
+
+  function restartAndUpdate (key, next) {
+    var existing = record.drones[key].monitor.uid;
+
+    record.drones[key].monitor.once(&#x27;restart&#x27;, function (_, data) {
+      //
+      // When the `restart` event is raised, update the set of processes for this
+      // app which this `Drone` instance has restarted
+      //
+      processes.push(self._formatRecord(record.drones[data.uid]));
+      next();
+    });
+
+    record.drones[key].monitor.restart();
+  }
+
+  async.forEach(keys, restartAndUpdate, function () {
+    callback(null, processes);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.drone.Drone.prototype.running" id="apidoc.element.haibu.drone.Drone.prototype.running">
+        function <span class="apidocSignatureSpan">haibu.drone.Drone.prototype.</span>running
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">running = function () {
+  var self = this,
+      all = [];
+
+  haibu.common.each(this.list(), function (record) {
+    var app = record.app;
+    haibu.common.each(record.drones, function (drone) {
+      all.push(self.format(app, drone));
+    });
+  });
+
+  return all;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.drone.Drone.prototype.show" id="apidoc.element.haibu.drone.Drone.prototype.show">
+        function <span class="apidocSignatureSpan">haibu.drone.Drone.prototype.</span>show
+        <span class="apidocSignatureSpan">(name)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">show = function (name) {
+  var self = this,
+      app = this.apps[name],
+      appData;
+
+  if (!app) {
+    return undefined;
+  }
+
+  appData = {
+    app: haibu.common.clone(this.apps[name].app),
+    drones: []
+  };
+  appData.app.repository = undefined;
+
+  if (app.drones) {
+    Object.keys(app.drones).forEach(function (uid) {
+      appData.drones.push(self._formatRecord(app.drones[uid]));
+    });
+  }
+
+  return appData;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.drone.Drone.prototype.start" id="apidoc.element.haibu.drone.Drone.prototype.start">
+        function <span class="apidocSignatureSpan">haibu.drone.Drone.prototype.</span>start
+        <span class="apidocSignatureSpan">(app, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">start = function (app, callback) {
+  var self = this;
+
+  this.spawner.trySpawn(app, function (err, result) {
+    if (err) {
+      return callback(err, false);
+    }
+    else if (typeof result === &#x27;undefined&#x27;) {
+      var err = new Error(&#x27;Unknown error from Spawner.&#x27;);
+      err.blame = {
+        type: &#x27;system&#x27;,
+        message: &#x27;Unknown&#x27;
+      }
+      return callback(err);
+    }
+    result.hash = app.hash
+    self._add(app, result, function (err) {
+      //
+      // If there is an error persisting the drone
+      // to disk then just respond anyway since the
+      // drone process started correctly.
+      //
+      callback(null, self._formatRecord(result));
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ },
+ &#x22;scripts&#x22;: {
+   &#x22;start&#x22;: &#x22;server.js&#x22;
+ }
+};
+
+// Attempt to start up a new application
+client.<span class="apidocCodeKeywordSpan">start</span>(app, function (err, result) {
+if (err) {
+  console.log(&#x27;Error spawning app: &#x27; + app.name);
+  return eyes.inspect(err);
+}
+
+console.log(&#x27;Successfully spawned app:&#x27;);
+eyes.inspect(result);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.drone.Drone.prototype.stop" id="apidoc.element.haibu.drone.Drone.prototype.stop">
+        function <span class="apidocSignatureSpan">haibu.drone.Drone.prototype.</span>stop
+        <span class="apidocSignatureSpan">(name, cleanup, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">stop = function (name, cleanup, callback) {
+  if (typeof cleanup !== &#x27;boolean&#x27;) {
+    callback = cleanup;
+    cleanup = true;
+  }
+
+  if (typeof this.apps[name] === &#x27;undefined&#x27;) {
+    return callback();
+  }
+
+  var self = this,
+      app = this.apps[name],
+      keys = Object.keys(app.drones),
+      results = [];
+
+  function removeAndSave (key, next) {
+    function onStop() {
+      app.drones[key].monitor.removeListener(&#x27;error&#x27;, onErr);
+      results.push(app.drones[key].process);
+      self._remove(app, app.drones[key], cleanup, function () {
+        next();
+      });
+    }
+
+    function onErr(err) {
+      //
+      // Remark should we handle errors here
+      //
+      haibu.emit([&#x27;drone&#x27;,&#x27;stop&#x27;,&#x27;error&#x27;], {
+        key: key,
+        message: err.message
+      });
+      app.drones[key].monitor.removeListener(&#x27;stop&#x27;, onStop);
+      next();
+    }
+
+    app.drones[key].monitor.once(&#x27;stop&#x27;, onStop);
+    app.drones[key].monitor.once(&#x27;error&#x27;, onErr);
+    try {
+      app.drones[key].monitor.stop(true);
+    }
+    catch (err) {
+      onErr(err);
+    }
+    haibu.emit([&#x27;drone&#x27;,&#x27;stop&#x27;,&#x27;success&#x27;], {key: key});
+  }
+
+  async.forEach(keys, removeAndSave, function () {
+    callback(null, results);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.drone.Drone.prototype.update" id="apidoc.element.haibu.drone.Drone.prototype.update">
+        function <span class="apidocSignatureSpan">haibu.drone.Drone.prototype.</span>update
+        <span class="apidocSignatureSpan">(app, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">update = function (app, callback) {
+  if (!app || !this.apps || !this.apps[app.name]) {
+    return callback(new Error(&#x27;Cannot update application that is not running.&#x27;));
+  }
+
+  var self = this;
+  this.clean(app, function (err) {
+    self.start(app, function (err, result) {
+      callback(err, result);
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.haibu.haibu" id="apidoc.module.haibu.haibu">module haibu.haibu</a></h1>
+
+
+
+
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.haibu.Spawner" id="apidoc.element.haibu.haibu.Spawner">
+        function <span class="apidocSignatureSpan">haibu.haibu.</span>Spawner
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Spawner(options) {
+  options = options || {};
+
+  this.maxRestart = options.maxRestart;
+  this.options    = options
+  this.silent     = options.silent     || false;
+  this.host       = options.host       || &#x27;127.0.0.1&#x27;;
+  this.packageDir = options.packageDir || haibu.config.get(&#x27;directories:packages&#x27;);
+  this.minUptime  = typeof options.minUptime !== &#x27;undefined&#x27; ? options.minUptime : 2000;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.haibu.getSpawnOptions" id="apidoc.element.haibu.haibu.getSpawnOptions">
+        function <span class="apidocSignatureSpan">haibu.haibu.</span>getSpawnOptions
+        <span class="apidocSignatureSpan">(target)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function getSpawnOptions(target) {
+  var options = _spawnOptions.apply(this, arguments);
+  options.env.USER = haibu.config.get(&#x27;useraccounts:prefix&#x27;) + target.user;
+  options.env.HOME = path.join(haibu.config.get(&#x27;directories:apps&#x27;), target.user);
+  options.env.TEMP = path.join(options.env.HOME, target.name, &#x27;.tmp&#x27;);
+  options.env.TMPDIR = path.join(options.env.HOME, target.name, &#x27;.tmp&#x27;);
+  return options;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.haibu.sendResponse" id="apidoc.element.haibu.haibu.sendResponse">
+        function <span class="apidocSignatureSpan">haibu.haibu.</span>sendResponse
+        <span class="apidocSignatureSpan">(res, status, body)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function sendResponse(res, status, body) {
+  return res.json(status, body);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.haibu.repository" id="apidoc.module.haibu.repository">module haibu.repository</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.repository.Repository" id="apidoc.element.haibu.repository.Repository">
+        function <span class="apidocSignatureSpan">haibu.repository.</span>Repository
+        <span class="apidocSignatureSpan">(app, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Repository = function (app, options) {
+  options = options || {};
+
+  //
+  // checks all properties of this.app recursively through
+  // all child classes of Repository
+  //
+  this.validate([], app);
+
+  this.app = app;
+  this.app._id = app.name.replace(&#x27; &#x27;, &#x27;-&#x27;);
+  this.appsDir = options.appsDir || haibu.config.get(&#x27;directories:apps&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.repository.add" id="apidoc.element.haibu.repository.add">
+        function <span class="apidocSignatureSpan">haibu.repository.</span>add
+        <span class="apidocSignatureSpan">(name, constructor)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">add = function (name, constructor) {
+  if (repos[name]) {
+    var err = new Error(&#x27;A repository type with this name (&#x27; + name + &#x27;) already exists!&#x27;);
+    err.blame = {
+      type: &#x27;user&#x27;,
+      message: &#x27;Repository already exists&#x27;
+    }
+    throw err;
+  }
+
+  repos[name] = constructor;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.repository.create" id="apidoc.element.haibu.repository.create">
+        function <span class="apidocSignatureSpan">haibu.repository.</span>create
+        <span class="apidocSignatureSpan">(app, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">create = function (app, options) {
+  //
+  // Perform validation on app before we attempt to create a repository
+  //
+  exports.validate(app);
+
+  var type = typeof app.repository.type === &#x27;string&#x27; ? app.repository.type.toLowerCase() : &#x27;&#x27;;
+
+  if (type === &#x27;&#x27; || !repos[type]) {
+    var err = new Error(&#x27;Cannot create repository for unknown type &#x27; + type);
+    err.blame = {
+      type: &#x27;user&#x27;,
+      message: &#x27;Repository configuration specified unknown type of repository&#x27;
+    }
+    throw err;
+  }
+
+  haibu.emit(&#x27;repository:create&#x27;, &#x27;info&#x27;, {
+    type: type,
+    app: app.name,
+    user: app.user
+  });
+
+  return new (repos[type])(app, options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.repository.list" id="apidoc.element.haibu.repository.list">
+        function <span class="apidocSignatureSpan">haibu.repository.</span>list
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">list = function () {
+  return Object.keys(repos);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.repository.remove" id="apidoc.element.haibu.repository.remove">
+        function <span class="apidocSignatureSpan">haibu.repository.</span>remove
+        <span class="apidocSignatureSpan">(name)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">remove = function (name) {
+  if (!repos[name]) {
+    var err = new Error(&#x27;A repository type with this name (&#x27; + name + &#x27;) does not exists!&#x27;);
+    err.blame = {
+      type: &#x27;user&#x27;,
+      message: &#x27;Repository already exists&#x27;
+    }
+    throw err;
+  }
+
+  delete repos[name];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.repository.validate" id="apidoc.element.haibu.repository.validate">
+        function <span class="apidocSignatureSpan">haibu.repository.</span>validate
+        <span class="apidocSignatureSpan">(pkg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">validate = function (pkg) {
+  return exports.Repository.prototype.validate([], pkg);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.haibu.repository.Repository" id="apidoc.module.haibu.repository.Repository">module haibu.repository.Repository</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.repository.Repository.Repository" id="apidoc.element.haibu.repository.Repository.Repository">
+        function <span class="apidocSignatureSpan">haibu.repository.</span>Repository
+        <span class="apidocSignatureSpan">(app, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Repository = function (app, options) {
+  options = options || {};
+
+  //
+  // checks all properties of this.app recursively through
+  // all child classes of Repository
+  //
+  this.validate([], app);
+
+  this.app = app;
+  this.app._id = app.name.replace(&#x27; &#x27;, &#x27;-&#x27;);
+  this.appsDir = options.appsDir || haibu.config.get(&#x27;directories:apps&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.haibu.repository.Repository.prototype" id="apidoc.module.haibu.repository.Repository.prototype">module haibu.repository.Repository.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.repository.Repository.prototype._setHome" id="apidoc.element.haibu.repository.Repository.prototype._setHome">
+        function <span class="apidocSignatureSpan">haibu.repository.Repository.prototype.</span>_setHome
+        <span class="apidocSignatureSpan">(path)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_setHome = function (path) {
+  this.app.directories = this.app.directories || {};
+  this.app.directories.home = path;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.repository.Repository.prototype.bootstrap" id="apidoc.element.haibu.repository.Repository.prototype.bootstrap">
+        function <span class="apidocSignatureSpan">haibu.repository.Repository.prototype.</span>bootstrap
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">bootstrap = function (callback) {
+  var self = this;
+  this.stat(function (err, exists) {
+    if (err) {
+      return self.mkdir(function (err, created) {
+        callback(null, false);
+      });
+    }
+
+    // If it already exists assume mkdir and init have also been called
+    callback(null, true);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.repository.Repository.prototype.installDependencies" id="apidoc.element.haibu.repository.Repository.prototype.installDependencies">
+        function <span class="apidocSignatureSpan">haibu.repository.Repository.prototype.</span>installDependencies
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">installDependencies = function (callback) {
+  var self = this;
+
+  fs.readFile(path.join(this.homeDir, &#x27;package.json&#x27;), function (err, data) {
+    if (!err) {
+      try {
+        pkg = JSON.parse(data);
+        pkg.dependencies = pkg.dependencies || {};
+        self.app.dependencies = haibu.common.mixin({}, pkg.dependencies, self.app.dependencies || {});
+      }
+      catch (err) {
+        //
+        // Ignore errors
+        //
+      }
+    }
+
+    haibu.common.npm.install(self.homeDir, self.app, callback)
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.repository.Repository.prototype.mkdir" id="apidoc.element.haibu.repository.Repository.prototype.mkdir">
+        function <span class="apidocSignatureSpan">haibu.repository.Repository.prototype.</span>mkdir
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">mkdir = function (callback) {
+  var self = this;
+  haibu.emit(&#x27;repo:dir:user:create&#x27;, &#x27;info&#x27;, {
+    app: self.app.name,
+    user: self.app.user,
+    dir: this.userDir
+  });
+
+  // check if the user&#x27;s folder already exists
+  fs.stat(self.userDir, function (userErr, stats) {
+    function createAppDir() {
+      haibu.emit(&#x27;repo:dir:app:create&#x27;, &#x27;info&#x27;, {
+        app: self.app.name,
+        user: self.app.user,
+        dir: self.appDir
+      });
+
+      // check if the application&#x27;s folder already exists
+      fs.stat(self.appDir, function (droneErr, stats) {
+        if (droneErr) { // folder doesn&#x27;t exist
+          return fs.mkdir(self.appDir, 0755, function (mkAppErr) {
+            if (mkAppErr) {
+              haibu.emit(&#x27;repo:dir:app:create&#x27;, &#x27;error&#x27;, {
+                app: self.app.name,
+                user: self.app.user,
+                dir: self.appDir
+              });
+
+              return callback(mkAppErr, false);
+            }
+
+            // If we created the directory successfully callback with true
+            haibu.emit(&#x27;repo:dir:app:success&#x27;, &#x27;info&#x27;, {
+              app: self.app.name,
+              user: self.app.user,
+              dir: self.appDir
+            });
+
+            callback(null, true);
+          });
+        }
+
+        callback(null, true);
+      });
+    }
+
+    if (userErr) {
+      return fs.mkdir(self.userDir, 0755, function (mkUserErr) {
+        if (mkUserErr) {
+          haibu.emit(&#x27;repo:dir:user:create&#x27;, &#x27;error&#x27;, {
+            app: self.app.name,
+            user: self.app.user,
+            dir: self.userDir
+          });
+
+          return callback(mkUserErr, false);
+        }
+
+        haibu.emit(&#x27;repo:dir:user:success&#x27;, &#x27;info&#x27;, {
+          app: self.app.name,
+          user: self.app.user,
+          dir: self.userDir
+        });
+
+        createAppDir();
+      });
+    }
+
+    createAppDir();
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.repository.Repository.prototype.stat" id="apidoc.element.haibu.repository.Repository.prototype.stat">
+        function <span class="apidocSignatureSpan">haibu.repository.Repository.prototype.</span>stat
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">stat = function (callback) {
+  var self = this;
+
+  //
+  // Assume that there is ONLY one directory allowed in each application directory.
+  // ex:
+  //   /local
+  //   /local/:username
+  //   /local/:username/:appname
+  //   /local/:username/:appname/:home
+  //
+  // By making this assumption we can infer the home directory immediately at run-time for
+  // all possible package.json repository types and remotes.
+  //
+  fs.readdir(this.appDir, function (err, files) {
+    if (err) {
+      // Since we couldn&#x27;t find the directory we need to pass it to addDir
+      haibu.emit(&#x27;repo:dir:notfound&#x27;, &#x27;warn&#x27;, {
+        app: self.app.name,
+        dir: self.appDir,
+        user: self.app.user
+      });
+
+      err.blame = {
+        type: &#x27;system&#x27;,
+        message: &#x27;Cannot find application directories&#x27;
+      }
+
+      return callback(err, false);
+    }
+    else if (files.length === 0) {
+      haibu.emit(&#x27;repo:dir:empty&#x27;, &#x27;warn&#x27;, {
+        app: self.app.name,
+        user: self.app.user,
+        dir: self.appDir
+      });
+
+      err = new Error(&#x27;Application directory is empty&#x27;);
+      err.blame = {
+        type: &#x27;user&#x27;,
+        message: &#x27;Repository local directory empty&#x27;
+      }
+
+      return callback(err);
+    }
+
+    // Now that we know the home directory, set it on the app managed by this repository
+    var firstNonDot = files.filter(function (f) { return f[0] !== &#x27;.&#x27; })[0],
+        sourceDir = path.join(self.appDir, firstNonDot);
+
+    self._setHome(firstNonDot);
+
+    haibu.emit(&#x27;repo:dir:exists&#x27;, &#x27;info&#x27;, {
+      app: self.app.name,
+      user: self.app.user,
+      dir: sourceDir
+    });
+
+    callback(null, true);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.repository.Repository.prototype.validate" id="apidoc.element.haibu.repository.Repository.prototype.validate">
+        function <span class="apidocSignatureSpan">haibu.repository.Repository.prototype.</span>validate
+        <span class="apidocSignatureSpan">(keys, app)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">validate = function (keys, app) {
+  var i, i2, required, props, check;
+
+  // Check for the basic required properties needed for haibu repositories + requested ones
+  keys = keys || [];
+  required = [&#x27;name&#x27;, &#x27;user&#x27;, &#x27;repository.type&#x27;, &#x27;scripts.start&#x27;].concat(keys);
+
+  for (i = 0; i &#x3c; required.length; i++) {
+    // split property if needed and run over each part
+    props = required[i].split(&#x27;.&#x27;);
+    check = app || this.app;
+
+    for (i2 = 0; i2 &#x3c; props.length; i2++) {
+      if (typeof(check[props[i2]]) == &#x27;undefined&#x27;) {
+        var message = [&#x27;Property&#x27;, required[i], &#x27;is required.&#x27;].join(&#x27; &#x27;);
+        haibu.emit(&#x27;repo:validate&#x27;, &#x27;warn&#x27;,  message, check);
+        var err = new Error(message);
+        err.blame = {
+          type: &#x27;user&#x27;,
+          message: &#x27;Missing properties in repository configuration&#x27;
+        }
+        throw err;
+        return;
+      }
+
+      check = check[props[i2]];
+    }
+  }
+  // all ok!
+  return;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.haibu.useraccounts" id="apidoc.module.haibu.useraccounts">module haibu.useraccounts</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.useraccounts.argv" id="apidoc.element.haibu.useraccounts.argv">
+        function <span class="apidocSignatureSpan">haibu.useraccounts.</span>argv
+        <span class="apidocSignatureSpan">(repo)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">argv = function (repo) {
+  var user = repo.app.user;
+  return { argv: [&#x27;--plugin&#x27;,
+        &#x27;setuid&#x27;,
+        &#x27;--setuid&#x27;,
+        haibu.config.get(&#x27;useraccounts:prefix&#x27;) + user] };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.useraccounts.attach" id="apidoc.element.haibu.useraccounts.attach">
+        function <span class="apidocSignatureSpan">haibu.useraccounts.</span>attach
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">attach = function (options) {
+  if (process.getuid() !== 0) {
+    throw new Error(&#x27;useraccounts plugin requires admin privileges.&#x27;);
+  }
+
+  haibu.config.set(&#x27;useraccounts:prefix&#x27;, &#x27;haibu-&#x27;);
+
+
+  var _install = haibu.common.npm.install;
+  haibu.common.npm.install = function install(dir, target, callback) {
+    var self = this;
+
+    var env = {};
+    for(var k in process.env) {
+      env[k] = process.env[k];
+    }
+
+    var user = env.USER = haibu.config.get(&#x27;useraccounts:prefix&#x27;) + target.user;
+    var appdir = env.HOME = path.join(haibu.config.get(&#x27;directories:apps&#x27;), target.user);
+    var child = spawn(&#x27;bash&#x27;, [path.join(__dirname, &#x27;..&#x27;, &#x27;common&#x27;, &#x27;adduser.sh&#x27;)], {
+        env: env
+     });
+    child.on(&#x27;exit&#x27;, function (code) {
+        haibu.emit(&#x27;useraccounts:adduser:exit&#x27;, &#x27;info&#x27;, {
+           exitCode: code
+        })
+        if (code === 0) {
+          _install.call(self, dir, target, changePermissions);
+        }
+        else {
+           callback(new Error(&#x27;Unable to create user&#x27;));
+        }
+    });
+
+    function changePermissions(err) {
+      if (err) {
+        callback(err);
+        return;
+      }
+
+      spawn(&#x27;chown&#x27;, [&#x27;-R&#x27;, user + &#x27;:nogroup&#x27;, appdir + &#x27;/&#x27; + target.name]).on(&#x27;exit&#x27;, function (exitCode) {
+        haibu.emit(&#x27;useraccounts:chown:exit&#x27;, &#x27;info&#x27;, {
+           exitCode: exitCode
+        })
+        if (exitCode) {
+          callback(new Error(&#x27;Unable to grab ownership for files&#x27;));
+        }
+        else {
+          spawn(&#x27;chmod&#x27;, [&#x27;-R&#x27;, &#x27;777&#x27;, appdir]).on(&#x27;exit&#x27;, function (exitCode) {
+            haibu.emit(&#x27;useraccounts:chmod:exit&#x27;, &#x27;info&#x27;, {
+               exitCode: exitCode
+            })
+            if (exitCode) {
+              callback(new Error(&#x27;Unable to change permissions for files&#x27;));
+            }
+            else {
+              callback();
+            }
+          });
+        }
+      });
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.useraccounts.init" id="apidoc.element.haibu.useraccounts.init">
+        function <span class="apidocSignatureSpan">haibu.useraccounts.</span>init
+        <span class="apidocSignatureSpan">(done)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">init = function (done) {
+  done();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.haibu.utils" id="apidoc.module.haibu.utils">module haibu.utils</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils._errnoException" id="apidoc.element.haibu.utils._errnoException">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>_errnoException
+        <span class="apidocSignatureSpan">(err, syscall, original)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_errnoException = function (err, syscall, original) {
+  var errname = uv.errname(err);
+  var message = `${syscall} ${errname}`;
+  if (original)
+    message += &#x27; &#x27; + original;
+  var e = new Error(message);
+  e.code = errname;
+  e.errno = errname;
+  e.syscall = syscall;
+  return e;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils._exceptionWithHostPort" id="apidoc.element.haibu.utils._exceptionWithHostPort">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>_exceptionWithHostPort
+        <span class="apidocSignatureSpan">(err, syscall, address, port, additional)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_exceptionWithHostPort = function (err, syscall, address, port, additional) {
+  var details;
+  if (port &#x26;&#x26; port &#x3e; 0) {
+    details = `${address}:${port}`;
+  } else {
+    details = address;
+  }
+
+  if (additional) {
+    details += ` - Local (${additional})`;
+  }
+  var ex = exports._errnoException(err, syscall, details);
+  ex.address = address;
+  if (port) {
+    ex.port = port;
+  }
+  return ex;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils._extend" id="apidoc.element.haibu.utils._extend">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>_extend
+        <span class="apidocSignatureSpan">(target, source)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_extend = function (target, source) {
+  // Don&#x27;t do anything if source isn&#x27;t an object
+  if (source === null || typeof source !== &#x27;object&#x27;) return target;
+
+  var keys = Object.keys(source);
+  var i = keys.length;
+  while (i--) {
+    target[keys[i]] = source[keys[i]];
+  }
+  return target;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.camelToUnderscore" id="apidoc.element.haibu.utils.camelToUnderscore">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>camelToUnderscore
+        <span class="apidocSignatureSpan">(obj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">camelToUnderscore = function (obj) {
+  if (typeof obj !== &#x27;object&#x27; || obj === null) {
+    return obj;
+  }
+
+  if (Array.isArray(obj)) {
+    obj.forEach(utile.camelToUnderscore);
+    return obj;
+  }
+
+  Object.keys(obj).forEach(function (key) {
+    var k = utile.inflect.underscore(key);
+    if (k !== key) {
+      obj[k] = obj[key];
+      delete obj[key];
+      key = k;
+    }
+    utile.camelToUnderscore(obj[key]);
+  });
+
+  return obj;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.capitalize" id="apidoc.element.haibu.utils.capitalize">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>capitalize
+        <span class="apidocSignatureSpan">(lower_case_and_underscored_word, first_letter_in_uppercase)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">capitalize = function (lower_case_and_underscored_word, first_letter_in_uppercase) {
+  var result;
+  if (first_letter_in_uppercase == null) first_letter_in_uppercase = true;
+  result = util.string.gsub(lower_case_and_underscored_word, /\/(.?)/, function($) {
+    return &#x22;.&#x22; + (util.string.upcase($[1]));
+  });
+  result = util.string.gsub(result, /(?:_)(.)/, function($) {
+    return util.string.upcase($[1]);
+  });
+  if (first_letter_in_uppercase) {
+    return util.string.upcase(result);
+  } else {
+    return util.string.downcase(result);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.clone" id="apidoc.element.haibu.utils.clone">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>clone
+        <span class="apidocSignatureSpan">(object, filter)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">clone = function (object, filter) {
+  return Object.keys(object).reduce(filter ? function (obj, k) {
+    if (filter(k)) obj[k] = object[k];
+    return obj;
+  } : function (obj, k) {
+    obj[k] = object[k];
+    return obj;
+  }, {});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.createPath" id="apidoc.element.haibu.utils.createPath">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>createPath
+        <span class="apidocSignatureSpan">(obj, path, value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">createPath = function (obj, path, value) {
+  var key, i;
+
+  for (i in path) {
+    key = path[i];
+    if (!obj[key]) {
+      obj[key] = ((+i + 1 === path.length) ? value : {});
+    }
+
+    obj = obj[key];
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.debug" id="apidoc.element.haibu.utils.debug">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>debug
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function deprecated() {
+  warned = exports.printDeprecationMessage(msg, warned, deprecated);
+  if (new.target) {
+    return Reflect.construct(fn, arguments, new.target);
+  }
+  return fn.apply(this, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.debuglog" id="apidoc.element.haibu.utils.debuglog">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>debuglog
+        <span class="apidocSignatureSpan">(set)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">debuglog = function (set) {
+  if (debugEnviron === undefined)
+    debugEnviron = process.env.NODE_DEBUG || &#x27;&#x27;;
+  set = set.toUpperCase();
+  if (!debugs[set]) {
+    if (new RegExp(`\\b${set}\\b`, &#x27;i&#x27;).test(debugEnviron)) {
+      var pid = process.pid;
+      debugs[set] = function() {
+        var msg = exports.format.apply(exports, arguments);
+        console.error(&#x27;%s %d: %s&#x27;, set, pid, msg);
+      };
+    } else {
+      debugs[set] = function() {};
+    }
+  }
+  return debugs[set];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.deprecate" id="apidoc.element.haibu.utils.deprecate">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>deprecate
+        <span class="apidocSignatureSpan">(fn, msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">deprecate = function (fn, msg) {
+  // Allow for deprecating things in the process of starting up.
+  if (global.process === undefined) {
+    return function() {
+      return exports._deprecate(fn, msg).apply(this, arguments);
+    };
+  }
+
+  if (process.noDeprecation === true) {
+    return fn;
+  }
+
+  var warned = false;
+  function deprecated() {
+    warned = exports.printDeprecationMessage(msg, warned, deprecated);
+    if (new.target) {
+      return Reflect.construct(fn, arguments, new.target);
+    }
+    return fn.apply(this, arguments);
+  }
+
+  // The wrapper will keep the same prototype as fn to maintain prototype chain
+  Object.setPrototypeOf(deprecated, fn);
+  if (fn.prototype) {
+    // Setting this (rather than using Object.setPrototype, as above) ensures
+    // that calling the unwrapped constructor gives an instanceof the wrapped
+    // constructor.
+    deprecated.prototype = fn.prototype;
+  }
+
+  return deprecated;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.each" id="apidoc.element.haibu.utils.each">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>each
+        <span class="apidocSignatureSpan">(obj, iterator)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">each = function (obj, iterator) {
+  Object.keys(obj).forEach(function (key) {
+    iterator(obj[key], key, obj);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.error" id="apidoc.element.haibu.utils.error">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>error
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function deprecated() {
+  warned = exports.printDeprecationMessage(msg, warned, deprecated);
+  if (new.target) {
+    return Reflect.construct(fn, arguments, new.target);
+  }
+  return fn.apply(this, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.escapeRegExp" id="apidoc.element.haibu.utils.escapeRegExp">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>escapeRegExp
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">escapeRegExp = function (str) {
+  return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, &#x22;\\$&#x26;&#x22;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.filter" id="apidoc.element.haibu.utils.filter">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>filter
+        <span class="apidocSignatureSpan">(obj, pred)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">filter = function (obj, pred) {
+  var copy;
+  if (Array.isArray(obj)) {
+    copy = [];
+    utile.each(obj, function (val, key) {
+      if (pred(val, key, obj)) {
+        copy.push(val);
+      }
+    });
+  }
+  else {
+    copy = {};
+    utile.each(obj, function (val, key) {
+      if (pred(val, key, obj)) {
+        copy[key] = val;
+      }
+    });
+  }
+  return copy;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.find" id="apidoc.element.haibu.utils.find">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>find
+        <span class="apidocSignatureSpan">(obj, pred)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">find = function (obj, pred) {
+  var value, key;
+
+  for (key in obj) {
+    value = obj[key];
+    if (pred(value, key)) {
+      return value;
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.getEndKey" id="apidoc.element.haibu.utils.getEndKey">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>getEndKey
+        <span class="apidocSignatureSpan">(startKey)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getEndKey = function (startKey) {
+  var length = startKey.length;
+  return startKey.slice(0, length - 1) + String.fromCharCode(startKey.charCodeAt(length - 1) + 1);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.inherits" id="apidoc.element.haibu.utils.inherits">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>inherits
+        <span class="apidocSignatureSpan">(ctor, superCtor)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">inherits = function (ctor, superCtor) {
+
+  if (ctor === undefined || ctor === null)
+    throw new TypeError(&#x27;The constructor to &#x22;inherits&#x22; must not be &#x27; +
+                        &#x27;null or undefined&#x27;);
+
+  if (superCtor === undefined || superCtor === null)
+    throw new TypeError(&#x27;The super constructor to &#x22;inherits&#x22; must not &#x27; +
+                        &#x27;be null or undefined&#x27;);
+
+  if (superCtor.prototype === undefined)
+    throw new TypeError(&#x27;The super constructor to &#x22;inherits&#x22; must &#x27; +
+                        &#x27;have a prototype&#x27;);
+
+  ctor.super_ = superCtor;
+  Object.setPrototypeOf(ctor.prototype, superCtor.prototype);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.inspect" id="apidoc.element.haibu.utils.inspect">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>inspect
+        <span class="apidocSignatureSpan">(obj, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function inspect(obj, opts) {
+  // default options
+  var ctx = {
+    seen: [],
+    stylize: stylizeNoColor
+  };
+  // legacy...
+  if (arguments[2] !== undefined) ctx.depth = arguments[2];
+  if (arguments[3] !== undefined) ctx.colors = arguments[3];
+  if (typeof opts === &#x27;boolean&#x27;) {
+    // legacy...
+    ctx.showHidden = opts;
+  }
+  // Set default and user-specified options
+  ctx = Object.assign({}, inspect.defaultOptions, ctx, opts);
+  if (ctx.colors) ctx.stylize = stylizeWithColor;
+  if (ctx.maxArrayLength === null) ctx.maxArrayLength = Infinity;
+  return formatValue(ctx, obj, ctx.depth);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+   }
+};
+
+// Attempt to start up a new application
+client.start(app, function (err, result) {
+  if (err) {
+    console.log(&#x27;Error spawning app: &#x27; + app.name);
+    return eyes.<span class="apidocCodeKeywordSpan">inspect</span>(err);
+  }
+
+  console.log(&#x27;Successfully spawned app:&#x27;);
+  eyes.inspect(result);
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.ipAddress" id="apidoc.element.haibu.utils.ipAddress">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>ipAddress
+        <span class="apidocSignatureSpan">(name)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">ipAddress = function (name) {
+  var interfaces = os.networkInterfaces();
+
+  var addresses = Object.keys(interfaces).map(function (nic) {
+    var addrs = interfaces[nic].filter(function (details) {
+      return details.address !== &#x27;127.0.0.1&#x27; &#x26;&#x26; details.family === &#x27;IPv4&#x27;
+    });
+    return addrs.length ? addrs[0].address : undefined;
+  }).filter(Boolean);
+
+  return addresses.length
+    ? addresses[0]
+    : &#x27;127.0.0.1&#x27;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.isArray" id="apidoc.element.haibu.utils.isArray">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>isArray
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function isArray() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.isBoolean" id="apidoc.element.haibu.utils.isBoolean">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>isBoolean
+        <span class="apidocSignatureSpan">(arg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function isBoolean(arg) {
+  return typeof arg === &#x27;boolean&#x27;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.isBuffer" id="apidoc.element.haibu.utils.isBuffer">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>isBuffer
+        <span class="apidocSignatureSpan">(b)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function isBuffer(b) {
+  return b instanceof Buffer;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.isDate" id="apidoc.element.haibu.utils.isDate">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>isDate
+        <span class="apidocSignatureSpan">(d)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function isDate(d) {
+  return binding.isDate(d);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.isError" id="apidoc.element.haibu.utils.isError">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>isError
+        <span class="apidocSignatureSpan">(e)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function isError(e) {
+  return exports.objectToString(e) === &#x27;[object Error]&#x27; || e instanceof Error;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.isFunction" id="apidoc.element.haibu.utils.isFunction">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>isFunction
+        <span class="apidocSignatureSpan">(arg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function isFunction(arg) {
+  return typeof arg === &#x27;function&#x27;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.isNull" id="apidoc.element.haibu.utils.isNull">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>isNull
+        <span class="apidocSignatureSpan">(arg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function isNull(arg) {
+  return arg === null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.isNullOrUndefined" id="apidoc.element.haibu.utils.isNullOrUndefined">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>isNullOrUndefined
+        <span class="apidocSignatureSpan">(arg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function isNullOrUndefined(arg) {
+  return arg === null || arg === undefined;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.isNumber" id="apidoc.element.haibu.utils.isNumber">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>isNumber
+        <span class="apidocSignatureSpan">(arg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function isNumber(arg) {
+  return typeof arg === &#x27;number&#x27;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.isObject" id="apidoc.element.haibu.utils.isObject">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>isObject
+        <span class="apidocSignatureSpan">(arg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function isObject(arg) {
+  return arg !== null &#x26;&#x26; typeof arg === &#x27;object&#x27;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.isPrimitive" id="apidoc.element.haibu.utils.isPrimitive">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>isPrimitive
+        <span class="apidocSignatureSpan">(arg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function isPrimitive(arg) {
+  return arg === null ||
+         typeof arg !== &#x27;object&#x27; &#x26;&#x26; typeof arg !== &#x27;function&#x27;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.isRegExp" id="apidoc.element.haibu.utils.isRegExp">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>isRegExp
+        <span class="apidocSignatureSpan">(re)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function isRegExp(re) {
+  return binding.isRegExp(re);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.isString" id="apidoc.element.haibu.utils.isString">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>isString
+        <span class="apidocSignatureSpan">(arg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function isString(arg) {
+  return typeof arg === &#x27;string&#x27;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.isSymbol" id="apidoc.element.haibu.utils.isSymbol">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>isSymbol
+        <span class="apidocSignatureSpan">(arg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function isSymbol(arg) {
+  return typeof arg === &#x27;symbol&#x27;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.isUndefined" id="apidoc.element.haibu.utils.isUndefined">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>isUndefined
+        <span class="apidocSignatureSpan">(arg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function isUndefined(arg) {
+  return arg === undefined;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.log" id="apidoc.element.haibu.utils.log">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>log
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">log = function () {
+  console.log(&#x27;%s - %s&#x27;, timestamp(), exports.format.apply(exports, arguments));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+     &#x22;start&#x22;: &#x22;server.js&#x22;
+   }
+};
+
+// Attempt to start up a new application
+client.start(app, function (err, result) {
+  if (err) {
+    console.<span class="apidocCodeKeywordSpan">log</span>(&#x27;Error spawning app: &#x27; + app.name);
+    return eyes.inspect(err);
+  }
+
+  console.log(&#x27;Successfully spawned app:&#x27;);
+  eyes.inspect(result);
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.mixin" id="apidoc.element.haibu.utils.mixin">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>mixin
+        <span class="apidocSignatureSpan">(target)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">mixin = function (target) {
+  utile.rargs(arguments, 1).forEach(function (o) {
+    Object.getOwnPropertyNames(o).forEach(function(attr) {
+      var getter = Object.getOwnPropertyDescriptor(o, attr).get,
+          setter = Object.getOwnPropertyDescriptor(o, attr).set;
+
+      if (!getter &#x26;&#x26; !setter) {
+        target[attr] = o[attr];
+      }
+      else {
+        Object.defineProperty(target, attr, {
+          get: getter,
+          set: setter
+        });
+      }
+    });
+  });
+
+  return target;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.pad" id="apidoc.element.haibu.utils.pad">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>pad
+        <span class="apidocSignatureSpan">(str, len, chr)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function pad(str, len, chr) {
+  var s;
+  if (!chr) {
+    chr = &#x27; &#x27;;
+  }
+  str = str || &#x27;&#x27;;
+  s = str;
+  if (str.length &#x3c; len) {
+    for (var i = 0; i &#x3c; (len - str.length); i++) {
+      s += chr;
+    }
+  }
+  return s;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.path" id="apidoc.element.haibu.utils.path">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>path
+        <span class="apidocSignatureSpan">(obj, path)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">path = function (obj, path) {
+  var key, i;
+
+  for (i in path) {
+    if (typeof obj === &#x27;undefined&#x27;) {
+      return undefined;
+    }
+
+    key = path[i];
+    obj = obj[key];
+  }
+
+  return obj;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.print" id="apidoc.element.haibu.utils.print">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>print
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function deprecated() {
+  warned = exports.printDeprecationMessage(msg, warned, deprecated);
+  if (new.target) {
+    return Reflect.construct(fn, arguments, new.target);
+  }
+  return fn.apply(this, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.puts" id="apidoc.element.haibu.utils.puts">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>puts
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function deprecated() {
+  warned = exports.printDeprecationMessage(msg, warned, deprecated);
+  if (new.target) {
+    return Reflect.construct(fn, arguments, new.target);
+  }
+  return fn.apply(this, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.randomString" id="apidoc.element.haibu.utils.randomString">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>randomString
+        <span class="apidocSignatureSpan">(length)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">randomString = function (length) {
+  var chars, rand, i, ret, mod, bits;
+
+  chars = &#x27;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-&#x27;;
+  ret = &#x27;&#x27;;
+  // standard 4
+  mod = 4;
+  // default is 16
+  bits = length * mod || 64;
+
+  // in v8, Math.random() yields 32 pseudo-random bits (in spidermonkey it gives 53)
+  while (bits &#x3e; 0) {
+    // 32-bit integer
+    rand = Math.floor(Math.random() * 0x100000000);
+    //we use the top bits
+    for (i = 26; i &#x3e; 0 &#x26;&#x26; bits &#x3e; 0; i -= mod, bits -= mod) {
+      ret += chars[0x3F &#x26; rand &#x3e;&#x3e;&#x3e; i];
+    }
+  }
+
+  return ret;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.rargs" id="apidoc.element.haibu.utils.rargs">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>rargs
+        <span class="apidocSignatureSpan">(_args, slice)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">rargs = function (_args, slice) {
+  if (!slice) {
+    slice = 0;
+  }
+
+  var len = (_args || []).length,
+      args = new Array(len - slice),
+      i;
+
+  //
+  // Convert the raw `_args` to a proper Array.
+  //
+  for (i = slice; i &#x3c; len; i++) {
+    args[i - slice] = _args[i];
+  }
+
+  return args;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.requireDir" id="apidoc.element.haibu.utils.requireDir">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>requireDir
+        <span class="apidocSignatureSpan">(directory)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">requireDir = function (directory) {
+  var result = {},
+      files = fs.readdirSync(directory);
+
+  files.forEach(function (file) {
+    if (file.substr(-3) === &#x27;.js&#x27;) {
+      file = file.substr(0, file.length - 3);
+    }
+    result[file] = require(path.resolve(directory, file));
+  });
+  return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.requireDirLazy" id="apidoc.element.haibu.utils.requireDirLazy">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>requireDirLazy
+        <span class="apidocSignatureSpan">(directory)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">requireDirLazy = function (directory) {
+  var result = {},
+      files = fs.readdirSync(directory);
+
+  files.forEach(function (file) {
+    if (file.substr(-3) === &#x27;.js&#x27;) {
+      file = file.substr(0, file.length - 3);
+    }
+    Object.defineProperty(result, file, {
+      get: function() {
+        return result[file] = require(path.resolve(directory, file));
+      }
+    });
+  });
+
+  return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.rmApp" id="apidoc.element.haibu.utils.rmApp">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>rmApp
+        <span class="apidocSignatureSpan">(appsDir, app, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">rmApp = function (appsDir, app, callback) {
+  return rimraf(path.join(appsDir, app.user, app.name), callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.rmApps" id="apidoc.element.haibu.utils.rmApps">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>rmApps
+        <span class="apidocSignatureSpan">(appsDir, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">rmApps = function (appsDir, callback) {
+  if (!callback &#x26;&#x26; typeof appsDir === &#x27;function&#x27;) {
+    callback = appsDir;
+    appsDir = null;
+  }
+
+  appsDir = appsDir || haibu.config.get(&#x27;directories:apps&#x27;);
+  fs.readdir(appsDir, function (err, users) {
+    if (err) {
+      return callback(err);
+    }
+
+    async.forEach(users, function rmUser (user, next) {
+      rimraf(path.join(appsDir, user), next);
+    }, callback);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.sanitizeAppname" id="apidoc.element.haibu.utils.sanitizeAppname">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>sanitizeAppname
+        <span class="apidocSignatureSpan">(name)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sanitizeAppname = function (name) {
+  var sha1 = crypto.createHash(&#x27;sha1&#x27;);
+
+  sha1.update(name);
+  return name.replace(/[^a-z0-9\-\_]+/g, &#x27;-&#x27;) + &#x27;-&#x27; + sha1.digest(&#x27;hex&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.showWelcome" id="apidoc.element.haibu.utils.showWelcome">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>showWelcome
+        <span class="apidocSignatureSpan">(role, ipAddress, port)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">showWelcome = function (role, ipAddress, port) {
+  var plugins = Object.keys(haibu.plugins),
+      serverMsg;
+
+  serverMsg = [
+    &#x27;haibu&#x27;.yellow.bold,
+    &#x27;started @&#x27;.grey,
+    (ipAddress || &#x27;127.0.0.1&#x27;).green.bold,
+    &#x27;on port&#x27;.grey,
+    port.toString().green.bold,
+    &#x27;as&#x27;.grey,
+    role.green.bold
+  ].join(&#x27; &#x27;);
+
+  console.log(common.welcome.join(&#x27;\n&#x27;));
+  console.log(&#x27; &#x27; + serverMsg);
+
+  //
+  // If there are any active plugins then
+  // indicate this via logged messages
+  //
+  if (plugins.length &#x3e; 0) {
+    plugins = plugins.map(function (p) { return p.yellow.bold }).join(&#x27;, &#x27;.grey);
+    console.log(&#x27;    using plugins: &#x27;.grey + plugins);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.templateUsage" id="apidoc.element.haibu.utils.templateUsage">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>templateUsage
+        <span class="apidocSignatureSpan">(app, commands)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">templateUsage = function (app, commands) {
+  if (!app.name) {
+    return commands;
+  }
+
+  function templateUsage(usage) {
+    return usage.map(function (line) {
+      return line.replace(/\&#x3c;app\&#x3e;/ig, app.name);
+    });
+  }
+
+  Object.keys(commands).forEach(function (command) {
+    if (command === &#x27;usage&#x27;) {
+      commands.usage = templateUsage(commands.usage);
+    }
+    else if (commands[command].usage) {
+      commands[command].usage = templateUsage(commands[command].usage);
+    }
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.tryReaddirSync" id="apidoc.element.haibu.utils.tryReaddirSync">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>tryReaddirSync
+        <span class="apidocSignatureSpan">(dir)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">tryReaddirSync = function (dir) {
+  try { return fs.readdirSync(dir) }
+  catch (err) { return [] }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.underscoreToCamel" id="apidoc.element.haibu.utils.underscoreToCamel">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>underscoreToCamel
+        <span class="apidocSignatureSpan">(obj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">underscoreToCamel = function (obj) {
+  if (typeof obj !== &#x27;object&#x27; || obj === null) {
+    return obj;
+  }
+
+  if (Array.isArray(obj)) {
+    obj.forEach(utile.underscoreToCamel);
+    return obj;
+  }
+
+  Object.keys(obj).forEach(function (key) {
+    var k = utile.inflect.camelize(key, false);
+    if (k !== key) {
+      obj[k] = obj[key];
+      delete obj[key];
+      key = k;
+    }
+    utile.underscoreToCamel(obj[key]);
+  });
+
+  return obj;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.uuid" id="apidoc.element.haibu.utils.uuid">
+        function <span class="apidocSignatureSpan">haibu.utils.</span>uuid
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">uuid = function () {
+  return String(id++);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.haibu.utils.directories" id="apidoc.module.haibu.utils.directories">module haibu.utils.directories</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.directories.create" id="apidoc.element.haibu.utils.directories.create">
+        function <span class="apidocSignatureSpan">haibu.utils.directories.</span>create
+        <span class="apidocSignatureSpan">(dirs, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">create = function (dirs, callback) {
+  function createDir(dir, next) {
+    mkdirp(dir, 0755, function () {
+      next(null, dir);
+    });
+  }
+
+  if (!dirs) {
+    return callback();
+  }
+
+  async.mapSeries(Object.keys(dirs).map(function (key) {
+    return dirs[key]
+  }), createDir, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.directories.normalize" id="apidoc.element.haibu.utils.directories.normalize">
+        function <span class="apidocSignatureSpan">haibu.utils.directories.</span>normalize
+        <span class="apidocSignatureSpan">(keys, dirs)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">normalize = function (keys, dirs) {
+  var normalized = {};
+
+  Object.keys(dirs).forEach(function (key) {
+    normalized[key] = dirs[key];
+    Object.keys(keys).forEach(function (constant) {
+      normalized[key] = normalized[key].replace(constant, keys[constant]);
+    });
+  });
+
+  return normalized;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.directories.remove" id="apidoc.element.haibu.utils.directories.remove">
+        function <span class="apidocSignatureSpan">haibu.utils.directories.</span>remove
+        <span class="apidocSignatureSpan">(dirs, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">remove = function (dirs, callback) {
+  function removeDir (dir, next) {
+    rimraf(dir, function () {
+      next(null, dir);
+    });
+  }
+
+  if (!dirs) {
+    return callback();
+  }
+
+  async.mapSeries(Object.keys(dirs).map(function (key) {
+    return dirs[key]
+  }), removeDir, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.haibu.utils.npm" id="apidoc.module.haibu.utils.npm">module haibu.utils.npm</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.npm.install" id="apidoc.element.haibu.utils.npm.install">
+        function <span class="apidocSignatureSpan">haibu.utils.npm.</span>install
+        <span class="apidocSignatureSpan">(dir, target, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">install = function (dir, target, callback) {
+  makeNPMConfiguration(dir, target, function (err) {
+    if (err) {
+      callback(err);
+      return;
+    }
+    spawnNPM(dir, target, callback);
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.npm.load" id="apidoc.element.haibu.utils.npm.load">
+        function <span class="apidocSignatureSpan">haibu.utils.npm.</span>load
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">load = function (callback) {
+  haibu.emit(&#x27;npm:load&#x27;, &#x27;info&#x27;, haibu.common.clone(npmConfig));
+  npm.load(npmConfig, function (err) {
+    if (err) {
+      haibu.emit(&#x27;npm:load&#x27;, &#x27;error&#x27;, { error: err.message });
+      return callback(err);
+    }
+
+    haibu.emit(&#x27;npm:load:success&#x27;, &#x27;silly&#x27;);
+    callback();
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.haibu.utils.npm.loadDependencies" id="apidoc.element.haibu.utils.npm.loadDependencies">
+        function <span class="apidocSignatureSpan">haibu.utils.npm.</span>loadDependencies
+        <span class="apidocSignatureSpan">(app, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">loadDependencies = function (app, callback) {
+  var self = this;
+  exports.load(function (err) {
+    if (err) {
+      return callback(err);
+    }
+
+    if (typeof app.dependencies === &#x27;undefined&#x27; || Object.keys(app.dependencies).length === 0) {
+      haibu.emit(&#x27;npm:install:none&#x27;, &#x27;info&#x27;, {
+        app: app.name,
+        user: app.user
+      });
+
+      return callback(null, true, []);
+    }
+
+    var dependencies = Object.keys(app.dependencies);
+    haibu.emit(&#x27;npm:install:load&#x27;, &#x27;info&#x27;, {
+      app: app.name,
+      user: app.user,
+      dependencies: dependencies
+    });
+
+    callback(null, dependencies);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
