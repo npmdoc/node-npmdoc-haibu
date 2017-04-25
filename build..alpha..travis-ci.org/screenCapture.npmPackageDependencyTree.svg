@@ -17,7 +17,7 @@
 <tspan x="10" y="234">├── tar@0.1.13 (inherits@1.0.2, block-stream@0.0.9, fstream@0.1.31)</tspan>
 <tspan x="10" y="250">├── winston@0.7.3 (cycle@1.0.3, async@0.2.10, stack-trace@0.0.9, colors@0.6.2, pkginfo@0.3.1, re\</tspan>
 <tspan x="10" y="266">quest@2.16.6)</tspan>
-<tspan x="10" y="282">├── flatiron@0.3.4 (pkginfo@0.3.0, optimist@0.3.5, director@1.1.10, prompt@0.2.9, broadway@0.2.7\</tspan>
+<tspan x="10" y="282">├── flatiron@0.3.4 (pkginfo@0.3.0, director@1.1.10, optimist@0.3.5, prompt@0.2.9, broadway@0.2.7\</tspan>
 <tspan x="10" y="298">)</tspan>
 <tspan x="10" y="314">├── forever-monitor@1.1.0 (watch@0.5.1, minimatch@0.0.5, ps-tree@0.0.3, utile@0.1.7, broadway@0.\</tspan>
 <tspan x="10" y="330">2.10)</tspan>

@@ -12479,9 +12479,9 @@ return Utf8ArrayToStr(bff);
         /*
          * this function will create a persistent dbTableCustomOrg
          */
-            options = local.objectSetDefault(options, { githubOrg: local.env.GITHUB_ORG });
+            options = local.objectSetDefault(options, { customOrg: local.env.GITHUB_ORG });
             options = local.objectSetDefault(options, {
-                name: 'CustomOrg.' + options.githubOrg,
+                name: 'CustomOrg.' + options.customOrg,
                 sizeLimit: 1000,
                 sortDefault: [{
                     fieldName: '_id'
@@ -12501,7 +12501,7 @@ return Utf8ArrayToStr(bff);
         /*
          * this function will query dbTableCustomOrg
          */
-            options = local.objectSetDefault(options, { githubOrg: local.env.GITHUB_ORG });
+            options = local.objectSetDefault(options, { customOrg: local.env.GITHUB_ORG });
             options = local.objectSetDefault(options, {
                 query: { buildStartedAt: { $not: { $gt: new Date(Date.now() - (
                     Number(options.olderThanLast) || 0
@@ -12516,7 +12516,7 @@ return Utf8ArrayToStr(bff);
          * this function will update dbTableCustomOrg with active, public repos
          */
             var count, dbRowList, self;
-            options = local.objectSetDefault(options, { githubOrg: local.env.GITHUB_ORG });
+            options = local.objectSetDefault(options, { customOrg: local.env.GITHUB_ORG });
             local.onNext(options, function (error, data) {
                 switch (options.modeNext) {
                 case 1:
@@ -12609,13 +12609,13 @@ return Utf8ArrayToStr(bff);
                     self.crudSetManyById(dbRowList
                         .filter(function (dbRow) {
                             return dbRow.private === false && dbRow.slug.indexOf(
-                                options.githubOrg + '/node-' + options.githubOrg + '-'
+                                options.customOrg + '/node-' + options.customOrg + '-'
                             ) === 0;
                         })
                         .map(function (dbRow) {
                             data = dbRow.current_build || {};
                             return {
-                                _id: dbRow.name.replace('node-' + options.githubOrg + '-', ''),
+                                _id: dbRow.name.replace('node-' + options.customOrg + '-', ''),
                                 active: dbRow.active,
                                 buildDuration: data.duration,
                                 buildFinishedAt: data.finished_at,
@@ -12655,9 +12655,9 @@ return Utf8ArrayToStr(bff);
         /*
          * this function will try to determine if the env-key is sensitive
          */
-            return (/(?:\b|_)(?:decrypt|key|pass|private|secret|token)/)
+            return (/(?:\b|_)(?:crypt|decrypt|key|pass|private|secret|token)/)
                 .test(key.toLowerCase()) ||
-                (/Decrypt|Key|Pass|Private|Secret|Token/).test(key);
+                (/Crypt|Decrypt|Key|Pass|Private|Secret|Token/).test(key);
         };
 
         local.envSanitize = function (env) {
