@@ -1504,7 +1504,23 @@
   this.packageDir = options.packageDir || haibu.config.get('directories:packages');
   this.minUptime  = typeof options.minUptime !== 'undefined' ? options.minUptime : 2000;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  path = require('path'),
+  fs = require('fs'),
+  eyes = require('eyes'),
+  assert = require('assert'),
+  haibu = require('../../lib/haibu'),
+  config = haibu.config;
+
+var spawner = new haibu.<span class="apidocCodeKeywordSpan">Spawner</span>({ maxRestart: 1 });
+
+var app = {
+"name": "test",
+"user": "marak",
+"repository": {
+  "type": "git",
+  "url": "http://github.com/Marak/hellonode.git",
+...</pre></li>
     </ul>
 
 
@@ -1556,7 +1572,23 @@ var app = {
   this.spawner     = new haibu.Spawner(options);
   this.packagesDir = options.packagesDir || haibu.config.get('directories:packages');
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+
+//
+// Create the server and add the new `http.Server`
+// and `haibu.drone.Drone` instance into the `haibu.running`
+// namespace.
+//
+var drone = new haibu.<span class="apidocCodeKeywordSpan">drone.Drone</span>(options);
+
+//
+// Setup the `union` server through `flatiron.plugins.http`
+// and then add routes.
+//
+haibu.use(flatiron.plugins.http, options.http || {});
+require('./service').createRouter(drone);
+...</pre></li>
     </ul>
 
 
@@ -1576,7 +1608,23 @@ var app = {
   options.env.TMPDIR = path.join(options.env.HOME, target.name, '.tmp');
   return options;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    timeout,
+    error,
+    drone;
+
+haibu.emit('spawn:setup', 'info', meta);
+
+try {
+  var spawnOptions = haibu.<span class="apidocCodeKeywordSpan">getSpawnOptions</span>(app);
+}
+catch (e) {
+  return callback(e);
+}
+
+foreverOptions = {
+  fork:      true,
+...</pre></li>
     </ul>
 
 
@@ -1601,7 +1649,24 @@ var app = {
   this.app._id = app.name.replace(' ', '-');
   this.appsDir = options.appsDir || haibu.config.get('directories:apps');
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        });
+      }
+    }
+  }
+},
+"an instance of the Repository class": {
+  topic: function (repo) {
+    return new haibu.<span class="apidocCodeKeywordSpan">repository.Repository</span>(app2, { appsDir: '/this/is/a/path'
+;});
+  },
+  "should return a Repository instance": function (repo) {
+    assert.instanceOf(repo, haibu.repository.Repository);
+    assert.isFunction(repo.validate);
+    assert.isFunction(repo.installDependencies);
+    assert.isFunction(repo.stat);
+    assert.isFunction(repo.mkdir);
+...</pre></li>
     </ul>
 
 
@@ -1616,7 +1681,23 @@ var app = {
     <li>description and source-code<pre class="apidocCodePre">function sendResponse(res, status, body) {
   return res.json(status, body);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  //
+  haibu.router.every.before = function (next) {
+    if (this.req.headers['x-auth-token'] === authToken) {
+      next();
+      return true;
+    }
+
+    haibu.<span class="apidocCodeKeywordSpan">sendResponse</span>(this.res, 403, { message: 'Wrong auth token' });
+    return false;
+  };
+}
+
+function preventTimeout(next) {
+  next = arguments[arguments.length - 1];
+  this.req.connection.setTimeout(haibu.config.get('service:timeout') || 60 * 1000 * 15);
+...</pre></li>
     </ul>
 
 
@@ -1699,7 +1780,23 @@ var app = {
   this.packageDir = options.packageDir || haibu.config.get('directories:packages');
   this.minUptime  = typeof options.minUptime !== 'undefined' ? options.minUptime : 2000;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  path = require('path'),
+  fs = require('fs'),
+  eyes = require('eyes'),
+  assert = require('assert'),
+  haibu = require('../../lib/haibu'),
+  config = haibu.config;
+
+var spawner = new haibu.<span class="apidocCodeKeywordSpan">Spawner</span>({ maxRestart: 1 });
+
+var app = {
+"name": "test",
+"user": "marak",
+"repository": {
+  "type": "git",
+  "url": "http://github.com/Marak/hellonode.git",
+...</pre></li>
     </ul>
 
 
@@ -1870,7 +1967,22 @@ var app = {
         drone.removeListener('exit', onExit);
         drone.removeListener('message', onCarapacePort);
         clearTimeout(timeout); ...</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  }
+
+  repo.bootstrap(function (err, existed) {
+if (err) {
+  return callback(err);
+}
+else if (existed) {
+  return self.<span class="apidocCodeKeywordSpan">spawn</span>(repo, callback);
+}
+
+repo.init(function (err, inited) {
+  if (err) {
+    return callback(err);
+  }
+...</pre></li>
     </ul>
 
 
@@ -1910,7 +2022,23 @@ var app = {
     });
   });
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+helpers.requireStart(9010)
+).addBatch({
+"An instance of haibu.Spawner": {
+  "when passed a valid app json with submodules": {
+    topic: appWithSubmodules,
+    "the trySpawn() method": {
+      topic: function (app) {
+        spawner.<span class="apidocCodeKeywordSpan">trySpawn</span>(app, this.callback);
+      },
+      "should return a valid drone result object": function (err, result) {
+        assert.isNull(err);
+        assert.isNotNull(result.drone);
+        result.process.kill();
+
+        // Ensure that the submodule's (vendor/proto) has files
+...</pre></li>
     </ul>
 
 
@@ -1958,7 +2086,23 @@ var app = {
     <li>description and source-code<pre class="apidocCodePre">init = function (done) {
   done();
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+helpers.cleanAutostart(function () {
+  if (config) {
+    Object.keys(config).forEach(function (key) {
+      haibu.config.set(key, config[key]);
+    });
+  }
+
+  haibu.<span class="apidocCodeKeywordSpan">init</span>(callback);
+});
+};
+
+helpers.start = function (port, callback) {
+helpers.init(function (err) {
+  haibu.drone.start({
+    minUptime: 0,
+...</pre></li>
     </ul>
 
 
@@ -1993,7 +2137,22 @@ var app = {
   //
   app.config.set('env', app.env);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+try { repo = app instanceof haibu.repository.Repository ? app : haibu.repository.create(app) }
+catch (ex) { return callback(ex) }
+
+if (repo instanceof Error) {
+  return callback(repo);
+}
+
+repo.<span class="apidocCodeKeywordSpan">bootstrap</span>(function (err, existed) {
+  if (err) {
+    return callback(err);
+  }
+  else if (existed) {
+    return self.spawn(repo, callback);
+  }
+...</pre></li>
     </ul>
 
 
@@ -2030,7 +2189,23 @@ var app = {
     callback();
   });
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+helpers.cleanAutostart(function () {
+  if (config) {
+    Object.keys(config).forEach(function (key) {
+      haibu.config.set(key, config[key]);
+    });
+  }
+
+  haibu.<span class="apidocCodeKeywordSpan">init</span>(callback);
+});
+};
+
+helpers.start = function (port, callback) {
+helpers.init(function (err) {
+  haibu.drone.start({
+    minUptime: 0,
+...</pre></li>
     </ul>
 
 
@@ -2057,7 +2232,23 @@ var app = {
     argv: ['--plugin', 'coffee']
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    if (haibu.plugins[plugin].argv) {
+haibu.emit('plugin:argv', 'info', {
+  app: app.name,
+  user: app.user,
+  plugin: plugin
+});
+
+spawn = haibu.plugins[plugin].<span class="apidocCodeKeywordSpan">argv</span>(repo);
+
+if (spawn.script) {
+  script = spawn.script
+}
+
+if (spawn.argv) {
+  foreverOptions.options = foreverOptions.options.concat(spawn.argv);
+...</pre></li>
     </ul>
 
 
@@ -2086,7 +2277,23 @@ var app = {
     <li>description and source-code<pre class="apidocCodePre">init = function (done) {
   done();
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+helpers.cleanAutostart(function () {
+  if (config) {
+    Object.keys(config).forEach(function (key) {
+      haibu.config.set(key, config[key]);
+    });
+  }
+
+  haibu.<span class="apidocCodeKeywordSpan">init</span>(callback);
+});
+};
+
+helpers.start = function (port, callback) {
+helpers.init(function (err) {
+  haibu.drone.start({
+    minUptime: 0,
+...</pre></li>
     </ul>
 
 
@@ -2147,7 +2354,23 @@ var app = {
   this.spawner     = new haibu.Spawner(options);
   this.packagesDir = options.packagesDir || haibu.config.get('directories:packages');
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+
+//
+// Create the server and add the new `http.Server`
+// and `haibu.drone.Drone` instance into the `haibu.running`
+// namespace.
+//
+var drone = new haibu.drone.<span class="apidocCodeKeywordSpan">Drone</span>(options);
+
+//
+// Setup the `union` server through `flatiron.plugins.http`
+// and then add routes.
+//
+haibu.use(flatiron.plugins.http, options.http || {});
+require('./service').createRouter(drone);
+...</pre></li>
     </ul>
 
 
@@ -2216,7 +2439,23 @@ var app = {
     }, callback);
   });
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+//
+exports.start = function (options, callback) {
+if (exports.started) {
+  return callback(null, haibu.running.server);
+}
+
+function tryAutostart (server) {
+  exports.<span class="apidocCodeKeywordSpan">autostart</span>(server, function (err) {
+    //
+    // Ignore errors from autostart and continue
+    // bringing up the haibu `drone` server.
+    //
+    // Remark: We should report the `err` somewhere
+    //
+    haibu.emit('start');
+...</pre></li>
     </ul>
 
 
@@ -2359,7 +2598,23 @@ eyes.inspect(result);
   haibu.running.drone.destroy(cleanup, callback || function () {});
   haibu.running = {};
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      }
+    }
+  }
+}
+}).addBatch({
+"Stopping server": {
+  topic: function () {
+    haibu.drone.<span class="apidocCodeKeywordSpan">stop</span>(false, this.callback);
+  },
+  "should be successfull": function () {
+    assert.lengthOf(Object.keys(haibu.running), 0);
+  }
+}
+}).addBatch({
+"When using haibu": {
+...</pre></li>
     </ul>
 
 
@@ -2447,7 +2702,23 @@ var app = {
     callback(null, result);
   });
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        topic: function (clean) {
+          var that = this, drone = new Drone({
+minUptime: 0,
+host: ipAddress,
+maxRestart: 1
+          });
+
+          drone.<span class="apidocCodeKeywordSpan">clean</span>(clean, function (err, repo) {
+if (err) {
+  return that.callback(err);
+}
+
+var appDir = path.join(haibu.config.get('directories:apps'), clean.user, clean.name);
+fs.readdir(appDir, function (err, files) {
+  if (err) {
+...</pre></li>
     </ul>
 
 
@@ -2467,7 +2738,23 @@ var app = {
     callback();
   });
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  topic: function (clean) {
+    var drone = new Drone({
+      minUptime: 0,
+      host: ipAddress,
+      maxRestart: 1
+    });
+
+    drone.<span class="apidocCodeKeywordSpan">cleanAll</span>(this.callback);
+  },
+  "should remove the dependencies and source files": function (err) {
+    assert.isTrue(!err);
+    var files = fs.readdirSync(haibu.config.get('directories:apps'));
+    assert.lengthOf(files, 0);
+  }
+}
+...</pre></li>
     </ul>
 
 
@@ -2484,7 +2771,24 @@ var app = {
     callback(null, result);
   });
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  "should return a valid drone result object": function (err, result) {
+    assert.isNull(err);
+    assert.isNotNull(result.drone);
+    result.process.kill();
+
+    // Ensure that the submodule's (vendor/proto) has files
+    try {
+      var submodulePath = path.join(config.<span class="apidocCodeKeywordSpan">get</span>('directories:apps'), 'charlie
+', 'exceptiony', 'exceptiony', 'vendor', 'proto');
+      assert.isTrue(fs.readdirSync(submodulePath).length &gt; 0);
+    }
+    catch (ex) {
+      assert.isNull(ex);
+    }
+  }
+}
+...</pre></li>
     </ul>
 
 
@@ -2505,7 +2809,23 @@ var app = {
     callback(null, result.drones);
   });
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  });
+
+  drone.start(create, function (err, result) {
+    if (err) {
+      return that.callback(err);
+    }
+
+    drone.<span class="apidocCodeKeywordSpan">restart</span>(create.name, that.callback);
+  });
+},
+"should return true": function (err, drones) {
+  assert.isNull(err);
+  assert.isArray(drones);
+  assert.equal(drones.length, 1);
+  this.drone.stop(app.name, function () {
+...</pre></li>
     </ul>
 
 
@@ -2563,7 +2883,23 @@ eyes.inspect(result);
     callback(null, null);
   });
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      }
+    }
+  }
+}
+}).addBatch({
+"Stopping server": {
+  topic: function () {
+    haibu.drone.<span class="apidocCodeKeywordSpan">stop</span>(false, this.callback);
+  },
+  "should be successfull": function () {
+    assert.lengthOf(Object.keys(haibu.running), 0);
+  }
+}
+}).addBatch({
+"When using haibu": {
+...</pre></li>
     </ul>
 
 
@@ -2653,7 +2989,23 @@ eyes.inspect(result);
   this.spawner     = new haibu.Spawner(options);
   this.packagesDir = options.packagesDir || haibu.config.get('directories:packages');
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+
+//
+// Create the server and add the new `http.Server`
+// and `haibu.drone.Drone` instance into the `haibu.running`
+// namespace.
+//
+var drone = new haibu.drone.<span class="apidocCodeKeywordSpan">Drone</span>(options);
+
+//
+// Setup the `union` server through `flatiron.plugins.http`
+// and then add routes.
+//
+haibu.use(flatiron.plugins.http, options.http || {});
+require('./service').createRouter(drone);
+...</pre></li>
     </ul>
 
 
@@ -2718,7 +3070,23 @@ eyes.inspect(result);
 
   this._autostartUpdate('add', app, record.drones, callback);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  err.blame = {
+    type: 'system',
+    message: 'Unknown'
+  }
+  return callback(err);
+}
+result.hash = app.hash
+self.<span class="apidocCodeKeywordSpan">_add</span>(app, result, function (err) {
+  //
+  // If there is an error persisting the drone
+  // to disk then just respond anyway since the
+  // drone process started correctly.
+  //
+  callback(null, self._formatRecord(result));
+});
+...</pre></li>
     </ul>
 
 
@@ -2734,7 +3102,22 @@ eyes.inspect(result);
   var appname = haibu.common.sanitizeAppname(app.name);
   return path.join(haibu.config.get('directories:autostart'), appname + '.json');
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// #### @drones {Object} Existing drones for the specified `app`.
+// #### @callback {function} Continuation to respond to when complete.
+// Performs the `action` for the autostart file on the specified `app`
+// with the current `drones`.
+//
+Drone.prototype._autostartUpdate = function (action, app, drones, callback) {
+var _drones = app.drones,
+    autostartFile = this.<span class="apidocCodeKeywordSpan">_autostartFile</span>(app),
+    dronesCount = Object.keys(drones).length,
+    appJson;
+
+app.drones = dronesCount;
+appJson = JSON.stringify(app);
+app.drones = _drones;
+...</pre></li>
     </ul>
 
 
@@ -2795,7 +3178,23 @@ eyes.inspect(result);
     callback();
   });
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  // we can control it later on.
+  //
+  drone.monitor.on('restart', function (_, data) {
+    self._update(record, uid, data);
+    uid = data.uid;
+  });
+
+  this.<span class="apidocCodeKeywordSpan">_autostartUpdate</span>('add', app, record.drones, callback);
+};
+
+//
+// ### function _remove (a, drone)
+// #### @record {Object} Wrapped {app, drone} tuple set in _add
+// #### @drone {Object} Drone metadata to remove from the specified application
+// #### @cleanup {bool} (optional) Remove all autostart files (default = true).
+...</pre></li>
     </ul>
 
 
@@ -2826,7 +3225,23 @@ eyes.inspect(result);
 
   return response;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  result.hash = app.hash
+  self._add(app, result, function (err) {
+    //
+    // If there is an error persisting the drone
+    // to disk then just respond anyway since the
+    // drone process started correctly.
+    //
+    callback(null, self.<span class="apidocCodeKeywordSpan">_formatRecord</span>(result));
+  });
+});
+};
+
+Drone.prototype.deploy = function (userId, appId, stream, callback) {
+var untarDir = path.join(this.packagesDir, [userId, appId, Date.now()].join('-')),
+    sha = crypto.createHash('sha1'),
+...</pre></li>
     </ul>
 
 
@@ -2863,7 +3278,23 @@ eyes.inspect(result);
     callback();
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  keys = Object.keys(app.drones),
+  results = [];
+
+  function removeAndSave (key, next) {
+function onStop() {
+  app.drones[key].monitor.removeListener('error', onErr);
+  results.push(app.drones[key].process);
+  self.<span class="apidocCodeKeywordSpan">_remove</span>(app, app.drones[key], cleanup, function () {
+    next();
+  });
+}
+
+function onErr(err) {
+  //
+  // Remark should we handle errors here
+...</pre></li>
     </ul>
 
 
@@ -2885,7 +3316,23 @@ eyes.inspect(result);
 
   callback();
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  //
+  // In the event that the drone unexpectedly restarts,
+  // we need to update the record with the new uid so that
+  // we can control it later on.
+  //
+  drone.monitor.on('restart', function (_, data) {
+    self.<span class="apidocCodeKeywordSpan">_update</span>(record, uid, data);
+    uid = data.uid;
+  });
+
+  this._autostartUpdate('add', app, record.drones, callback);
+};
+
+//
+...</pre></li>
     </ul>
 
 
@@ -2915,7 +3362,23 @@ eyes.inspect(result);
     haibu.common.rmApp(appsDir, app, callback);
   });
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        topic: function (clean) {
+          var that = this, drone = new Drone({
+minUptime: 0,
+host: ipAddress,
+maxRestart: 1
+          });
+
+          drone.<span class="apidocCodeKeywordSpan">clean</span>(clean, function (err, repo) {
+if (err) {
+  return that.callback(err);
+}
+
+var appDir = path.join(haibu.config.get('directories:apps'), clean.user, clean.name);
+fs.readdir(appDir, function (err, files) {
+  if (err) {
+...</pre></li>
     </ul>
 
 
@@ -2957,7 +3420,23 @@ eyes.inspect(result);
     async.forEach([appsDir, autostartDir], haibu.common.rmApps, callback);
   });
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  topic: function (clean) {
+    var drone = new Drone({
+      minUptime: 0,
+      host: ipAddress,
+      maxRestart: 1
+    });
+
+    drone.<span class="apidocCodeKeywordSpan">cleanAll</span>(this.callback);
+  },
+  "should remove the dependencies and source files": function (err) {
+    assert.isTrue(!err);
+    var files = fs.readdirSync(haibu.config.get('directories:apps'));
+    assert.lengthOf(files, 0);
+  }
+}
+...</pre></li>
     </ul>
 
 
@@ -3051,7 +3530,23 @@ eyes.inspect(result);
       .on('end', onEnd);
   });
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+//
+// ### Deploys App
+// 'POST /deploy/:userid/:appid'
+//
+haibu.router.post('/deploy/:userid/:appid', { stream: true }, function (userId, appId) {
+  var res = this.res;
+  drone.<span class="apidocCodeKeywordSpan">deploy</span>(userId, appId, this.req, function (err, result) {
+    if (err) {
+      haibu.emit(['error', 'service'], 'error', err);
+      return haibu.sendResponse(res, 500, { error: err });
+    }
+    haibu.sendResponse(res, 200, { drone: result });
+  })
+});
+...</pre></li>
     </ul>
 
 
@@ -3069,7 +3564,18 @@ eyes.inspect(result);
     self.stop(name, cleanup, callback);
   }, callback);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    return callback ? callback() : null;
+  }
+
+  exports.started = false;
+  haibu.running.server.close();
+
+  // Terminate drones
+  haibu.running.drone.<span class="apidocCodeKeywordSpan">destroy</span>(cleanup, callback || function () {});
+  haibu.running = {};
+};
+...</pre></li>
     </ul>
 
 
@@ -3098,7 +3604,23 @@ eyes.inspect(result);
     haibuPort: drone.port
   };
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Drone.prototype.running = function () {
+  var self = this,
+      all = [];
+
+  haibu.common.each(this.list(), function (record) {
+    var app = record.app;
+    haibu.common.each(record.drones, function (drone) {
+      all.push(self.<span class="apidocCodeKeywordSpan">format</span>(app, drone));
+    });
+  });
+
+  return all;
+};
+
+Drone.prototype.format = function (app, drone) {
+...</pre></li>
     </ul>
 
 
@@ -3120,7 +3642,23 @@ eyes.inspect(result);
 
   return allApps;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+          assert.isString(uid);
+          assert.isNumber(pid);
+          assert.isObject(updated);
+          assert.notEqual(pid, updated.apps['delayed-fail'].drones[uid].data.pid);
+        },
+        "the list() method should return an updated pid": function (_, uid, pid, drone) {
+          var updatedPids = drone.apps['delayed-fail'].drones,
+              listed = drone.<span class="apidocCodeKeywordSpan">list</span>()['delayed-fail'].drones[0];
+
+          assert.equal(listed.pid, updatedPids[listed.uid].data.pid);
+        }
+      }
+    }
+  }
+}
+...</pre></li>
     </ul>
 
 
@@ -3161,7 +3699,23 @@ eyes.inspect(result);
     callback(null, processes);
   });
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  });
+
+  drone.start(create, function (err, result) {
+    if (err) {
+      return that.callback(err);
+    }
+
+    drone.<span class="apidocCodeKeywordSpan">restart</span>(create.name, that.callback);
+  });
+},
+"should return true": function (err, drones) {
+  assert.isNull(err);
+  assert.isArray(drones);
+  assert.equal(drones.length, 1);
+  this.drone.stop(app.name, function () {
+...</pre></li>
     </ul>
 
 
@@ -3186,7 +3740,23 @@ eyes.inspect(result);
 
   return all;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+//
+// ### List Drone Processes
+// `GET /drones/running` returns with a list of formatted
+// drone processes.
+//
+this.get('/running', function () {
+  haibu.sendResponse(this.res, 200, drone.<span class="apidocCodeKeywordSpan">running</span>());
+});
+
+//
+// ### Show App
+// `GET /drones/:id` shows details of a drone managed by the
+// Drone associated with this router.
+//
+...</pre></li>
     </ul>
 
 
@@ -3221,7 +3791,23 @@ eyes.inspect(result);
 
   return appData;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// Lists details about all drones managed by this instance
+//
+Drone.prototype.list = function () {
+var self = this,
+    allApps = {};
+
+Object.keys(this.apps).forEach(function (name) {
+  allApps[name] = self.<span class="apidocCodeKeywordSpan">show</span>(name);
+});
+
+return allApps;
+};
+
+Drone.prototype.running = function () {
+var self = this,
+...</pre></li>
     </ul>
 
 
@@ -3338,7 +3924,23 @@ eyes.inspect(result);
     callback(null, results);
   });
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      }
+    }
+  }
+}
+}).addBatch({
+"Stopping server": {
+  topic: function () {
+    haibu.drone.<span class="apidocCodeKeywordSpan">stop</span>(false, this.callback);
+  },
+  "should be successfull": function () {
+    assert.lengthOf(Object.keys(haibu.running), 0);
+  }
+}
+}).addBatch({
+"When using haibu": {
+...</pre></li>
     </ul>
 
 
@@ -3362,7 +3964,23 @@ eyes.inspect(result);
     });
   });
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// ### sanitizeAppname (name)
+// Returns sanitized appname (with removed characters) concatenated with
+// original name's hash
+//
+common.sanitizeAppname = function (name) {
+  var sha1 = crypto.createHash('sha1');
+
+  sha1.<span class="apidocCodeKeywordSpan">update</span>(name);
+  return name.replace(/[^a-z0-9\-\_]+/g, '-') + '-' + sha1.digest('hex');
+};
+
+//
+// ### function ipAddress (name)
+// #### @name {string} **Optional** Name of the network interface
+// Returns the address for the network interface on the current
+...</pre></li>
     </ul>
 
 
@@ -3392,7 +4010,24 @@ eyes.inspect(result);
   this.app._id = app.name.replace(' ', '-');
   this.appsDir = options.appsDir || haibu.config.get('directories:apps');
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        });
+      }
+    }
+  }
+},
+"an instance of the Repository class": {
+  topic: function (repo) {
+    return new haibu.repository.<span class="apidocCodeKeywordSpan">Repository</span>(app2, { appsDir: '/this/is/a/path'
+;});
+  },
+  "should return a Repository instance": function (repo) {
+    assert.instanceOf(repo, haibu.repository.Repository);
+    assert.isFunction(repo.validate);
+    assert.isFunction(repo.installDependencies);
+    assert.isFunction(repo.stat);
+    assert.isFunction(repo.mkdir);
+...</pre></li>
     </ul>
 
 
@@ -3416,7 +4051,23 @@ eyes.inspect(result);
 
   repos[name] = constructor;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  assert.isFunction(haibu.repository.add);
+  assert.isFunction(haibu.repository.remove);
+  assert.isFunction(haibu.repository.list);
+  assert.isFunction(haibu.repository.validate);
+},
+"the add() method": {
+  "should add a new repo type": function () {
+    haibu.repository.<span class="apidocCodeKeywordSpan">add</span>('test', newRepo);
+    assert.include(haibu.repository.list(), 'test');
+  },
+  "with existing repository type": {
+    "should throw an error": function () {
+      assert.throws(function () {
+        haibu.repository.add('test', newRepo);
+      });
+...</pre></li>
     </ul>
 
 
@@ -3453,7 +4104,22 @@ eyes.inspect(result);
 
   return new (repos[type])(app, options);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+topic: function () {
+  var sourceDir = path.join(__dirname, '..', 'fixtures', 'repositories', 'bad-start'),
+      pkgJson = fs.readFileSync(path.join(sourceDir, 'package.json')),
+      npmApp = JSON.parse(pkgJson);
+
+  npmApp.user = 'charlie';
+  npmApp.repository.directory = sourceDir;
+  repo = haibu.repository.<span class="apidocCodeKeywordSpan">create</span>(npmApp);
+  spawner.trySpawn(repo, this.callback);
+},
+"should return an error with the correct stack trace": function (err, result) {
+  assert.isNotNull(err);
+  assert.isTrue(typeof result === 'undefined');
+  assert.equal(err.message, 'Error spawning drone');
+...</pre></li>
     </ul>
 
 
@@ -3468,7 +4134,23 @@ eyes.inspect(result);
     <li>description and source-code<pre class="apidocCodePre">list = function () {
   return Object.keys(repos);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+          assert.isString(uid);
+          assert.isNumber(pid);
+          assert.isObject(updated);
+          assert.notEqual(pid, updated.apps['delayed-fail'].drones[uid].data.pid);
+        },
+        "the list() method should return an updated pid": function (_, uid, pid, drone) {
+          var updatedPids = drone.apps['delayed-fail'].drones,
+              listed = drone.<span class="apidocCodeKeywordSpan">list</span>()['delayed-fail'].drones[0];
+
+          assert.equal(listed.pid, updatedPids[listed.uid].data.pid);
+        }
+      }
+    }
+  }
+}
+...</pre></li>
     </ul>
 
 
@@ -3492,7 +4174,23 @@ eyes.inspect(result);
 
   delete repos[name];
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    assert.include(list, 'zip');
+    assert.include(list, 'local');
+  }
+},
+"the remove() method": {
+  topic: function () {
+    haibu.repository.add('test2', newRepo);
+    return haibu.repository.<span class="apidocCodeKeywordSpan">remove</span>('test2')
+      ? false
+      : haibu.repository.list();
+  },
+  "should remove a repo type": function (list) {
+    assert.isArray(list);
+    assert.equal(list.indexOf('test2'), -1);
+  }
+...</pre></li>
     </ul>
 
 
@@ -3507,7 +4205,23 @@ eyes.inspect(result);
     <li>description and source-code<pre class="apidocCodePre">validate = function (pkg) {
   return exports.Repository.prototype.validate([], pkg);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// Creates a repository for the specified application by switching
+// off `app.repository.type' in the application package.json manifest.
+//
+exports.create = function (app, options) {
+//
+// Perform validation on app before we attempt to create a repository
+//
+exports.<span class="apidocCodeKeywordSpan">validate</span>(app);
+
+var type = typeof app.repository.type === 'string' ? app.repository.type.toLowerCase() : '';
+
+if (type === '' || !repos[type]) {
+  var err = new Error('Cannot create repository for unknown type ' + type);
+  err.blame = {
+    type: 'user',
+...</pre></li>
     </ul>
 
 
@@ -3537,7 +4251,24 @@ eyes.inspect(result);
   this.app._id = app.name.replace(' ', '-');
   this.appsDir = options.appsDir || haibu.config.get('directories:apps');
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        });
+      }
+    }
+  }
+},
+"an instance of the Repository class": {
+  topic: function (repo) {
+    return new haibu.repository.<span class="apidocCodeKeywordSpan">Repository</span>(app2, { appsDir: '/this/is/a/path'
+;});
+  },
+  "should return a Repository instance": function (repo) {
+    assert.instanceOf(repo, haibu.repository.Repository);
+    assert.isFunction(repo.validate);
+    assert.isFunction(repo.installDependencies);
+    assert.isFunction(repo.stat);
+    assert.isFunction(repo.mkdir);
+...</pre></li>
     </ul>
 
 
@@ -3558,7 +4289,23 @@ eyes.inspect(result);
   this.app.directories = this.app.directories || {};
   this.app.directories.home = path;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  assert.isFunction(repo.validate);
+  assert.isFunction(repo.installDependencies);
+  assert.isFunction(repo.stat);
+  assert.isFunction(repo.mkdir);
+  assert.isFunction(repo.bootstrap);
+  assert.equal(repo.userDir, path.join('/this/is/a/path', app2.user));
+  assert.equal(repo.appDir, path.join('/this/is/a/path', app2.user, app2.name));
+  repo.<span class="apidocCodeKeywordSpan">_setHome</span>('home1');
+  assert.equal(repo.homeDir, path.join('/this/is/a/path', app2.user, app2.name, 'home1'));
+},
+"executing the mkdir() method": {
+  topic: function (repo, repositories) {
+    var self = this;
+    repo.appsDir = haibu.config.get('directories:apps');
+    exec('rm -rf ' + path.join(repo.appDir, '*'), function (err) {
+...</pre></li>
     </ul>
 
 
@@ -3583,7 +4330,22 @@ eyes.inspect(result);
     callback(null, true);
   });
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+try { repo = app instanceof haibu.repository.Repository ? app : haibu.repository.create(app) }
+catch (ex) { return callback(ex) }
+
+if (repo instanceof Error) {
+  return callback(repo);
+}
+
+repo.<span class="apidocCodeKeywordSpan">bootstrap</span>(function (err, existed) {
+  if (err) {
+    return callback(err);
+  }
+  else if (existed) {
+    return self.spawn(repo, callback);
+  }
+...</pre></li>
     </ul>
 
 
@@ -3615,7 +4377,25 @@ eyes.inspect(result);
     haibu.common.npm.install(self.homeDir, self.app, callback)
   });
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+topic: function (ready, repo, repositories) {
+  var self = this;
+  exec('cp -r ' + path.join(__dirname, '..', 'fixtures', 'repositories', 'local-file
+-dependencies') + ' ' + repo.homeDir, function (err) {
+    if (err) {
+      return self.callback(err);
+    }
+
+    repo.<span class="apidocCodeKeywordSpan">installDependencies</span>(self.callback);
+  });
+},
+"should install the 'color' package at the correct location": function (err, packages) {
+  assert.isArray(packages);
+  try {
+    assert.isNotNull(fs.statSync(path.join(haibu.config.get('directories:apps'), app2.user, app2.name, 'home1'
+;, 'node_modules', 'color')));
+  }
+...</pre></li>
     </ul>
 
 
@@ -3698,7 +4478,23 @@ eyes.inspect(result);
     createAppDir();
   });
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  assert.equal(repo.homeDir, path.join('/this/is/a/path', app2.user, app2.name, 'home1'));
+},
+"executing the mkdir() method": {
+  topic: function (repo, repositories) {
+    var self = this;
+    repo.appsDir = haibu.config.get('directories:apps');
+    exec('rm -rf ' + path.join(repo.appDir, '*'), function (err) {
+      repo.<span class="apidocCodeKeywordSpan">mkdir</span>(self.callback);
+    })
+  },
+  "should create the apps directory": function (err, ready) {
+    assert.isTrue(ready);
+    try {
+      assert.isNotNull(fs.statSync(path.join(haibu.config.get('directories:apps'), app2.user, app2.name)));
+    }
+...</pre></li>
     </ul>
 
 
@@ -3771,7 +4567,24 @@ eyes.inspect(result);
     callback(null, true);
   });
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+
+//
+// Before we attempt to spawn, let's check if the startPath actually points to a file
+// Trapping this specific error is useful as the error indicates an incorrect
+// scripts.start property in the package.json
+//
+fs.<span class="apidocCodeKeywordSpan">stat</span>(repo.startScript, function (err, stats) {
+  if (err) {
+    var err = new Error('package.json error: ' + 'can\'t find starting script: ' + repo.app.scripts.start
+);
+    err.blame = {
+      type: 'user',
+      message: 'Package.json start script declared but not found'
+    }
+    return callback(err);
+...</pre></li>
     </ul>
 
 
@@ -3814,7 +4627,23 @@ eyes.inspect(result);
   // all ok!
   return;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// Creates a repository for the specified application by switching
+// off `app.repository.type' in the application package.json manifest.
+//
+exports.create = function (app, options) {
+//
+// Perform validation on app before we attempt to create a repository
+//
+exports.<span class="apidocCodeKeywordSpan">validate</span>(app);
+
+var type = typeof app.repository.type === 'string' ? app.repository.type.toLowerCase() : '';
+
+if (type === '' || !repos[type]) {
+  var err = new Error('Cannot create repository for unknown type ' + type);
+  err.blame = {
+    type: 'user',
+...</pre></li>
     </ul>
 
 
@@ -3838,7 +4667,23 @@ eyes.inspect(result);
         '--setuid',
         haibu.config.get('useraccounts:prefix') + user] };
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    if (haibu.plugins[plugin].argv) {
+haibu.emit('plugin:argv', 'info', {
+  app: app.name,
+  user: app.user,
+  plugin: plugin
+});
+
+spawn = haibu.plugins[plugin].<span class="apidocCodeKeywordSpan">argv</span>(repo);
+
+if (spawn.script) {
+  script = spawn.script
+}
+
+if (spawn.argv) {
+  foreverOptions.options = foreverOptions.options.concat(spawn.argv);
+...</pre></li>
     </ul>
 
 
@@ -3929,7 +4774,23 @@ eyes.inspect(result);
     <li>description and source-code<pre class="apidocCodePre">init = function (done) {
   done();
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+helpers.cleanAutostart(function () {
+  if (config) {
+    Object.keys(config).forEach(function (key) {
+      haibu.config.set(key, config[key]);
+    });
+  }
+
+  haibu.<span class="apidocCodeKeywordSpan">init</span>(callback);
+});
+};
+
+helpers.start = function (port, callback) {
+helpers.init(function (err) {
+  haibu.drone.start({
+    minUptime: 0,
+...</pre></li>
     </ul>
 
 
@@ -4094,7 +4955,23 @@ eyes.inspect(result);
     return obj;
   }, {});
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  Object.defineProperty(Error.prototype, "toJSON", {
+    enumerable: false,
+    value: function () {
+      return flatiron.common.mixin({
+        message: this.message,
+        stack: this.stack,
+        arguments: this.arguments
+      }, flatiron.common.<span class="apidocCodeKeywordSpan">clone</span>(this));
+    }
+  });
+}
+
+//
+// ### Include Exports
+// Export additional common components
+...</pre></li>
     </ul>
 
 
@@ -4227,7 +5104,23 @@ eyes.inspect(result);
     iterator(obj[key], key, obj);
   });
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+return allApps;
+};
+
+Drone.prototype.running = function () {
+var self = this,
+    all = [];
+
+haibu.common.<span class="apidocCodeKeywordSpan">each</span>(this.list(), function (record) {
+  var app = record.app;
+  haibu.common.each(record.drones, function (drone) {
+    all.push(self.format(app, drone));
+  });
+});
+
+return all;
+...</pre></li>
     </ul>
 
 
@@ -4293,7 +5186,23 @@ eyes.inspect(result);
   }
   return copy;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        assert.isTrue(typeof result === 'undefined');
+        assert.equal(err.message, 'Error spawning drone');
+
+        //
+        // Assert that the correct error message from the drone was passed
+        // back up the callback chain.
+        //
+        var errLine = err.stderr.split('\n').<span class="apidocCodeKeywordSpan">filter</span>(function (line) {
+          return line.indexOf("Cannot find module 'badmodule'") &gt; -1;
+        })[0];
+        assert.isString(errLine);
+      }
+    }
+  }
+}
+...</pre></li>
     </ul>
 
 
@@ -4360,7 +5269,23 @@ eyes.inspect(result);
   ctor.super_ = superCtor;
   Object.setPrototypeOf(ctor.prototype, superCtor.prototype);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  if (invalid) return invalid;
+
+  options = options || {};
+  this.packageDir = options.packageDir || haibu.config.get('directories:packages');
+};
+
+// Inherit from Repository
+util.<span class="apidocCodeKeywordSpan">inherits</span>(LocalFile, Repository);
+
+//
+// ### function validate ()
+// #### @keys {Array||String} The keys to check in app. (i.e. 'scripts.start')
+// #### @app {Object} (optional) The app object to check. if not given this.app will be used.
+// #### @return {Error|| undefined} undefined if valid, Error if not
+// Checks Application configuration attributes used by this repository type
+...</pre></li>
     </ul>
 
 
@@ -4431,7 +5356,22 @@ client.start(app, function (err, result) {
     ? addresses[0]
     : '127.0.0.1';
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    description: 'You\'re looking at it!',
+    boolean: true
+  }
+}
+});
+
+var start = app.commands.start = function(address, port, env) {
+address = address || app.argv.address         || haibu.common.<span class="apidocCodeKeywordSpan">ipAddress</span>();
+port    = port    || parseInt(app.argv.port)  || 9002;
+env     = env     || app.argv.env             || 'development';
+
+if (app.argv.useraccounts) {
+  haibu.use(haibu.useraccounts, {});
+}
+...</pre></li>
     </ul>
 
 
@@ -4444,7 +5384,23 @@ client.start(app, function (err, result) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function isArray() { [native code] }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        request(options, this.callback);
+      },
+      "should respond with 200": function (error, response, body) {
+        assert.equal(response.statusCode, 200);
+      },
+      "should respond with a list of drones": function (error, response, body) {
+        var drones = JSON.parse(body).drones;
+        assert.<span class="apidocCodeKeywordSpan">isArray</span>(drones);
+        assert.lengthOf(drones, 1);
+      }
+    }
+  }
+}
+}).addBatch({
+"When using the drone server": {
+...</pre></li>
     </ul>
 
 
@@ -4519,7 +5475,23 @@ client.start(app, function (err, result) {
     <li>description and source-code<pre class="apidocCodePre">function isFunction(arg) {
   return typeof arg === 'function';
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+function newRepo(app, options) { }
+
+vows.describe('haibu/repositories/core').addBatch(helpers.requireInit()).addBatch({
+"When using the repository module": {
+  "should have store functions": function () {
+    assert.isObject(haibu.repository);
+    assert.<span class="apidocCodeKeywordSpan">isFunction</span>(haibu.repository.create);
+    assert.isFunction(haibu.repository.add);
+    assert.isFunction(haibu.repository.remove);
+    assert.isFunction(haibu.repository.list);
+    assert.isFunction(haibu.repository.validate);
+  },
+  "the add() method": {
+    "should add a new repo type": function () {
+...</pre></li>
     </ul>
 
 
@@ -4534,7 +5506,24 @@ client.start(app, function (err, result) {
     <li>description and source-code<pre class="apidocCodePre">function isNull(arg) {
   return arg === null;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    "when passed a valid app json with submodules": {
+topic: appWithSubmodules,
+"the trySpawn() method": {
+  topic: function (app) {
+    spawner.trySpawn(app, this.callback);
+  },
+  "should return a valid drone result object": function (err, result) {
+    assert.<span class="apidocCodeKeywordSpan">isNull</span>(err);
+    assert.isNotNull(result.drone);
+    result.process.kill();
+
+    // Ensure that the submodule's (vendor/proto) has files
+    try {
+      var submodulePath = path.join(config.get('directories:apps'), 'charlie', 'exceptiony', '
+;exceptiony', 'vendor', 'proto');
+      assert.isTrue(fs.readdirSync(submodulePath).length &gt; 0);
+...</pre></li>
     </ul>
 
 
@@ -4564,7 +5553,23 @@ client.start(app, function (err, result) {
     <li>description and source-code<pre class="apidocCodePre">function isNumber(arg) {
   return typeof arg === 'number';
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+},
+"should respond with app infomation": function (err, res, body) {
+  assert.isNull(err);
+
+  var result = JSON.parse(body).drone;
+  assert.equal(result.user, 'test');
+  assert.equal(result.name, 'hellonode');
+  assert.<span class="apidocCodeKeywordSpan">isNumber</span>(result.port);
+  assert.isNumber(result.pid);
+},
+"the spawned application": {
+  topic: function (req, body) {
+    var result = JSON.parse(body);
+    request('http://localhost:' + result.drone.port, this.callback)
+  },
+...</pre></li>
     </ul>
 
 
@@ -4579,7 +5584,20 @@ client.start(app, function (err, result) {
     <li>description and source-code<pre class="apidocCodePre">function isObject(arg) {
   return arg !== null &amp;&amp; typeof arg === 'object';
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  "When using haibu": {
+    "the package.json file": {
+      topic: function () {
+        fs.readFile(path.join(__dirname, '..', '..', 'package.json'), this.callback);
+      },
+      "should be a valid package.json file": function (err, data) {
+        var package = JSON.parse(data.toString());
+        assert.<span class="apidocCodeKeywordSpan">isObject</span>(package);
+      }
+    }
+  }
+}).export(module);
+...</pre></li>
     </ul>
 
 
@@ -4625,7 +5643,23 @@ client.start(app, function (err, result) {
     <li>description and source-code<pre class="apidocCodePre">function isString(arg) {
   return typeof arg === 'string';
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        //
+        // Assert that the correct error message from the drone was passed
+        // back up the callback chain.
+        //
+        var errLine = err.stderr.split('\n').filter(function (line) {
+          return line.indexOf("Cannot find module 'badmodule'") &gt; -1;
+        })[0];
+        assert.<span class="apidocCodeKeywordSpan">isString</span>(errLine);
+      }
+    }
+  }
+}
+}).addBatch({
+"An instance of haibu.Spawner": {
+  "when passed a valid app json": {
+...</pre></li>
     </ul>
 
 
@@ -4655,7 +5689,23 @@ client.start(app, function (err, result) {
     <li>description and source-code<pre class="apidocCodePre">function isUndefined(arg) {
   return arg === undefined;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      },
+      "the stop() method when stopping a single drone": {
+        topic: function (_, create) {
+          this.drone.stop(create.name, this.callback);
+        },
+        "should respond with no error": function (err, result) {
+          assert.isNull(err);
+          assert.<span class="apidocCodeKeywordSpan">isUndefined</span>(this.drone.apps[app.name]);
+        }
+      }
+    }
+  }
+}
+}).addBatch({
+"An instance of haibu.drone.Drone": {
+...</pre></li>
     </ul>
 
 
@@ -4717,7 +5767,23 @@ client.start(app, function (err, result) {
 
   return target;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+//
+// **REALLY DONT DO THIS HERE! But where?**
+//
+if (!Error.prototype.toJSON) {
+  Object.defineProperty(Error.prototype, "toJSON", {
+    enumerable: false,
+    value: function () {
+      return flatiron.common.<span class="apidocCodeKeywordSpan">mixin</span>({
+        message: this.message,
+        stack: this.stack,
+        arguments: this.arguments
+      }, flatiron.common.clone(this));
+    }
+  });
+}
+...</pre></li>
     </ul>
 
 
@@ -4769,7 +5835,23 @@ client.start(app, function (err, result) {
 
   return obj;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+});
+
+
+//
+// ### Drones Resource
+// Routes for RESTful access to the Drone resource.
+//
+haibu.router.<span class="apidocCodeKeywordSpan">path</span>('/drones', function () {
+  //
+  // ### List Apps
+  // `GET /drones` returns list of all drones managed by the
+  // Drone associated with this router.
+  //
+  this.get(function () {
+    var res = this.res,
+...</pre></li>
     </ul>
 
 
@@ -4939,7 +6021,23 @@ client.start(app, function (err, result) {
     <li>description and source-code<pre class="apidocCodePre">rmApp = function (appsDir, app, callback) {
   return rimraf(path.join(appsDir, app.user, app.name), callback);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  this.stop(app.name, function (err, result) {
+    //
+    // Ignore errors and continue cleaning
+    //
+    if (err) {
+      haibu.emit('drone:clean:warning', err);
+    }
+    haibu.common.<span class="apidocCodeKeywordSpan">rmApp</span>(appsDir, app, callback);
+  });
+};
+
+//
+// ### function cleanAll ()
+// #### @callback {function} Continuation passed to respond to.
+// Stops all potentially running applications and removes all source code
+...</pre></li>
     </ul>
 
 
@@ -4986,7 +6084,23 @@ client.start(app, function (err, result) {
   sha1.update(name);
   return name.replace(/[^a-z0-9\-\_]+/g, '-') + '-' + sha1.digest('hex');
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+//
+// ### function _autostartFile (app)
+// #### @app {Object} App to create the autostart file for.
+// Returns filename for haibu's persistance (autostart) feature
+//
+Drone.prototype._autostartFile = function (app) {
+  var appname = haibu.common.<span class="apidocCodeKeywordSpan">sanitizeAppname</span>(app.name);
+  return path.join(haibu.config.get('directories:autostart'), appname + '.json');
+};
+
+//
+// ### function _autostartUpdate (action, app, drones, callback)
+// #### @action {'start'|'stop'} Action to perform on the autostart file
+// #### @app {Object} Application to update for autostart
+...</pre></li>
     </ul>
 
 
@@ -5024,7 +6138,23 @@ client.start(app, function (err, result) {
     console.log('    using plugins: '.grey + plugins);
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+haibu.config.file({ file: path.join(__dirname, '..', 'config', 'config.json') });
+
+haibu.drone.start({
+  env: env,
+  port: port,
+  host: address
+}, function () {
+  haibu.utils.<span class="apidocCodeKeywordSpan">showWelcome</span>('api-server', address, port);
+});
+};
+
+
+// If no command was given, immediately start haibu.
+if (app.argv._.length == 0 &amp;&amp; !app.argv.help) {
+start();
+...</pre></li>
     </ul>
 
 
@@ -5159,7 +6289,22 @@ client.start(app, function (err, result) {
     return dirs[key]
   }), createDir, callback);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+topic: function () {
+  var sourceDir = path.join(__dirname, '..', 'fixtures', 'repositories', 'bad-start'),
+      pkgJson = fs.readFileSync(path.join(sourceDir, 'package.json')),
+      npmApp = JSON.parse(pkgJson);
+
+  npmApp.user = 'charlie';
+  npmApp.repository.directory = sourceDir;
+  repo = haibu.repository.<span class="apidocCodeKeywordSpan">create</span>(npmApp);
+  spawner.trySpawn(repo, this.callback);
+},
+"should return an error with the correct stack trace": function (err, result) {
+  assert.isNotNull(err);
+  assert.isTrue(typeof result === 'undefined');
+  assert.equal(err.message, 'Error spawning drone');
+...</pre></li>
     </ul>
 
 
@@ -5210,7 +6355,23 @@ client.start(app, function (err, result) {
     return dirs[key]
   }), removeDir, callback);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    assert.include(list, 'zip');
+    assert.include(list, 'local');
+  }
+},
+"the remove() method": {
+  topic: function () {
+    haibu.repository.add('test2', newRepo);
+    return haibu.repository.<span class="apidocCodeKeywordSpan">remove</span>('test2')
+      ? false
+      : haibu.repository.list();
+  },
+  "should remove a repo type": function (list) {
+    assert.isArray(list);
+    assert.equal(list.indexOf('test2'), -1);
+  }
+...</pre></li>
     </ul>
 
 
@@ -5236,7 +6397,23 @@ client.start(app, function (err, result) {
     spawnNPM(dir, target, callback);
   })
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  var meta = {};
+
+  //
+  // Install all dependencies into the target directory
+  //
+  function installAll(deps) {
+npm.commands.<span class="apidocCodeKeywordSpan">install</span>(dir, deps, function (err) {
+  if (err) {
+    return callback(err);
+  }
+
+  haibu.emit('npm:install:success', 'info', meta);
+  callback(null, deps);
+});
+...</pre></li>
     </ul>
 
 
@@ -5260,7 +6437,23 @@ client.start(app, function (err, result) {
     callback();
   });
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+//
+// ### function load (callback)
+// #### @callback {function} Continuation to respond to when complete.
+// Loads npm with the default `npmConfig`.
+//
+exports.load = function (callback) {
+  haibu.emit('npm:load', 'info', haibu.common.clone(npmConfig));
+  npm.<span class="apidocCodeKeywordSpan">load</span>(npmConfig, function (err) {
+if (err) {
+  haibu.emit('npm:load', 'error', { error: err.message });
+  return callback(err);
+}
+
+haibu.emit('npm:load:success', 'silly');
+callback();
+...</pre></li>
     </ul>
 
 
@@ -5298,7 +6491,22 @@ client.start(app, function (err, result) {
     callback(null, dependencies);
   });
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+
+//
+// Loads all dependencies for the `app` manifest and then installs
+// them into the target directory.
+//
+function loadAppAndInstall(app) {
+  exports.<span class="apidocCodeKeywordSpan">loadDependencies</span>(target, function (err, dependencies) {
+    if (err) {
+      return callback(err);
+    }
+    else if (dependencies === true) {
+      return callback(null, []);
+    }
+...</pre></li>
     </ul>
 
 
